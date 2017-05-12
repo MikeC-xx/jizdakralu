@@ -1,0 +1,21 @@
+{
+  "name": "jizdakralu",
+  "description": "jizdakralu ==========",
+  "main": "index.js",
+  "authors": [
+    "Michael Cenker <michael.cenker@k2ol.cz>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.6",
+    "components-font-awesome": "^4.7.0"
+  }
+}
