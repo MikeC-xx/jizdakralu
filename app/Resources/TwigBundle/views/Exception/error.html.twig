@@ -1,0 +1,15 @@
+{% extends 'default.html.twig' %}
+
+{% set hasBreadcrumb = true %}
+
+{% block title %}{{ 'An error occurred'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+<span class="breadcrumb-item active">{{ 'An error occurred'|trans }}</span>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h2>{{ 'An error occurred'|trans }} <small>{{ status_code }} {{ status_text }}</small></h2>
+</div>
+{% endblock %}

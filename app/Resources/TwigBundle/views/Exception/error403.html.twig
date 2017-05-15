@@ -1,0 +1,15 @@
+{% extends 'default.html.twig' %}
+
+{% set hasBreadcrumb = true %}
+
+{% block title %}{{ 'Access denied'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+<span class="breadcrumb-item active">{{ 'Access denied'|trans }}</span>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h2>{{ 'Access denied'|trans }}</h2>
+</div>
+{% endblock %}
