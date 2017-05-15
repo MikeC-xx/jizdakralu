@@ -3,7 +3,7 @@
 module.exports = {
 
   css: {
-    files: ['<%= paths.src %>/css/**/*.css'],
+    files: ['<%= paths.src %>/scss/**/*.scss'],
     tasks: ['test-css', 'build-css']
   },
 

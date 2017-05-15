@@ -1,0 +1,16 @@
+{% extends 'default.html.twig' %}
+
+{% set hasBreadcrumb = true %}
+
+{% block title %}{{ app.request.get('q') ? app.request.get('q') : 'Search'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+<span class="breadcrumb-item active">{{ 'The Kings\' Ride in Doloplazy'|trans }}</span>
+<span class="breadcrumb-item active">{{ 'Search'|trans }}{% if app.request.get('q') %}: {{ app.request.get('q') }}{% endif %}</span>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h2>{{ 'Search'|trans }}{% if app.request.get('q') %} „{{ app.request.get('q') }}”{% endif %}</h2>
+</div>
+{% endblock %}

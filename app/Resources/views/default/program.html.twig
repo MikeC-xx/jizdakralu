@@ -1,0 +1,16 @@
+{% extends 'default.html.twig' %}
+
+{% set hasBreadcrumb = true %}
+
+{% block title %}{{ 'Program'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|trans }} {{ kingsRide.year }}{% endblock %}
+
+{% block breadcrumb %}
+<span class="breadcrumb-item active">{{ 'The Kings\' Ride in Doloplazy'|trans }} {{ kingsRide.year }}</span>
+<span class="breadcrumb-item active">{{ 'Program'|trans }}</span>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h2>{{ 'Program'|trans }}</h2>
+</div>
+{% endblock %}

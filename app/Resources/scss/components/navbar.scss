@@ -1,4 +1,13 @@
+.navbar-sticky {
+    position: sticky;
+    top: 0;
+}
+
 .navbar-inverse .input-group .form-control,
-.navbar-inverse .input-group .btn {
-    border-color: $navbar-inverse-color;
+.navbar-inverse .input-group .btn-primary {
+    border-color: rgba($black,.2);
+}
+
+.navbar-border-bottom {
+    border-bottom: 1px solid rgba($black,.2);
 }

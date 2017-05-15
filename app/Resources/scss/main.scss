@@ -1,7 +1,10 @@
 @import "config/variables";
-@import "config/typography";
 
 @import "bootstrap/scss/bootstrap";
 @import "components-font-awesome/scss/font-awesome";
 
+@import "config/typography";
+@import "config/layout";
+
 @import "components/navbar";
+@import "components/utilities";

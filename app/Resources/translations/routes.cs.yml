@@ -1,0 +1,26 @@
+# Desc: /guest-of-the-kings-ride-{year}
+guest: /host-jizdy-kralu-{year}
+
+# Desc: /history-of-the-kings-ride
+history: /historie-jizdy-kralu
+
+# Desc: /{year}
+homepage: /{year}
+
+# Desc: /the-kings-ride-{year}
+kings_ride: /jizda-kralu-{year}
+
+# Desc: /organizer-of-the-kings-ride
+organizer: /poradatel-jizdy-kralu
+
+# Desc: /performers-of-the-kings-ride-{year}
+performers: /ucinkujici-soubory-jizdy-kralu-{year}
+
+# Desc: /program-of-the-kings-ride-{year}
+program: /program-jizdy-kralu-{year}
+
+# Desc: /sponsors-of-the-kings-ride-{year}
+sponsors: /sponzori-jizdy-kralu-{year}
+
+# Desc: /downloads
+downloads: /ke-stazeni

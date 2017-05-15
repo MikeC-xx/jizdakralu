@@ -1,0 +1,27 @@
+html,
+body {
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
+}
+
+.footer {
+    background-color: $gray-dark;
+}
+
+.footer,
+.footer a {
+    color: $gray-light;
+}
+
+.footer a:hover,
+.footer a:focus {
+    color: lighten($gray-light, 10%);
+}
