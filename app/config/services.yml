@@ -4,6 +4,10 @@ parameters:
 #    parameter_name: value
 
 services:
+    assets.empty_version_strategy:
+        class: AppBundle\Twig\Extension\AssetVersionStrategy
+        arguments:
+            - "%kernel.root_dir%"
     twig.extension.intl:
         class: Twig_Extensions_Extension_Intl
         tags:
