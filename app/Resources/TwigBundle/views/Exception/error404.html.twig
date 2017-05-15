@@ -1,0 +1,15 @@
+{% extends 'default.html.twig' %}
+
+{% set hasBreadcrumb = true %}
+
+{% block title %}{{ 'Page was not found'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+<span class="breadcrumb-item active">{{ 'Page was not found'|trans }}</span>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h2>{{ 'Page was not found'|trans }}</h2>
+</div>
+{% endblock %}
