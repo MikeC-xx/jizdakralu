@@ -3,6 +3,9 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
+use AdminBundle\Entity\BaseEntity;
 
 /**
  * KingsRide
@@ -10,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="kings_ride")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\KingsRideRepository")
  */
-class KingsRide
+class KingsRide extends BaseEntity
 {
     /**
      * @var int
@@ -25,6 +28,7 @@ class KingsRide
      * @var int
      *
      * @ORM\Column(name="year", type="smallint", unique=true)
+     * @Assert\NotBlank()
      */
     private $year;
 
@@ -32,15 +36,26 @@ class KingsRide
      * @var string
      *
      * @ORM\Column(name="introduction", type="string", length=255)
+     * @Assert\NotBlank()
+     * @Gedmo\Translatable()
      */
     private $introduction;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="program", type="text")
+     * @ORM\Column(name="saturday_program", type="text")
+     * @Gedmo\Translatable()
      */
-    private $program;
+    private $saturdayProgram;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sunday_program", type="text")
+     * @Gedmo\Translatable()
+     */
+    private $sundayProgram;
 
     /**
      * @var King
@@ -185,5 +200,68 @@ class KingsRide
     public function getSponsors()
     {
         return $this->sponsors;
+    }
+
+    public function __toString()
+    {
+        return 'The Kings\' Ride %year%';
+    }
+
+    public static function getIndexColumns()
+    {
+        return ['id', 'year', ['property' => 'startDate', 'dateTimeFormat' => 'd. MMMM'], ['property' => 'endDate', 'dateTimeFormat' => 'd. MMMM']];
+    }
+
+    /**
+     * Set saturdayProgram
+     *
+     * @param string $saturdayProgram
+     *
+     * @return KingsRide
+     */
+    public function setSaturdayProgram($saturdayProgram)
+    {
+        $this->saturdayProgram = $saturdayProgram;
+
+        return $this;
+    }
+
+    /**
+     * Get saturdayProgram
+     *
+     * @return string
+     */
+    public function getSaturdayProgram()
+    {
+        return $this->saturdayProgram;
+    }
+
+    /**
+     * Set sundayProgram
+     *
+     * @param string $sundayProgram
+     *
+     * @return KingsRide
+     */
+    public function setSundayProgram($sundayProgram)
+    {
+        $this->sundayProgram = $sundayProgram;
+
+        return $this;
+    }
+
+    /**
+     * Get sundayProgram
+     *
+     * @return string
+     */
+    public function getSundayProgram()
+    {
+        return $this->sundayProgram;
+    }
+
+    public function getHasTranslatableToString()
+    {
+        return true;
     }
 }

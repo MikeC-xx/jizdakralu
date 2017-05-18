@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use AdminBundle\Entity\BaseEntity;
 
 /**
  * Guest
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="guest")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\GuestRepository")
  */
-class Guest
+class Guest extends BaseEntity
 {
     /**
      * @var int
@@ -25,6 +27,7 @@ class Guest
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $name;
 
@@ -98,5 +101,39 @@ class Guest
     public function getDescription()
     {
         return $this->description;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+    public static function getIndexColumns()
+    {
+        return ['id', 'name'];
+    }
+
+    /**
+     * Set photo
+     *
+     * @param \AppBundle\Entity\Document $photo
+     *
+     * @return Guest
+     */
+    public function setPhoto(\AppBundle\Entity\Document $photo = null)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return \AppBundle\Entity\Document
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
     }
 }

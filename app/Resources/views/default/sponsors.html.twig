@@ -2,15 +2,31 @@
 
 {% set hasBreadcrumb = true %}
 
-{% block title %}{{ 'Sponsors'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|trans }} {{ kingsRide.year }}{% endblock %}
+{% block title %}{{ 'Sponsors'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ kingsRide.year }}{% endblock %}
 
 {% block breadcrumb %}
-<span class="breadcrumb-item active">{{ 'The Kings\' Ride in Doloplazy'|trans }} {{ kingsRide.year }}</span>
+<span class="breadcrumb-item active">{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ kingsRide.year }}</span>
 <span class="breadcrumb-item active">{{ 'Sponsors'|trans }}</span>
 {% endblock %}
 
 {% block content %}
 <div class="container-fluid">
-    <h2>{{ 'Sponsors'|trans }}</h2>
+    {% set sponsors = {} %}
+    {% for sponsor in kingsRide.sponsors %}
+        {% if sponsors[sponsor.sponsorKind.id] is not defined %}
+            {% set sponsors = sponsors|merge({
+                (sponsor.sponsorKind.name): []
+            }) %}
+        {% endif %}
+        {% set sponsors = sponsors|merge({
+            (sponsor.sponsorKind.name): [sponsor]
+        }) %}
+    {% endfor %}
+    {% for sponsorKind in sponsors|keys %}
+        <h2>{{ sponsorKind }}</h2>
+        {% for sponsor in sponsors[sponsorKind] %}
+            <img src="{{ asset(sponsor.logo.webPath) }}" alt="{{ sponsor.logo.description }}">
+        {% endfor %}
+    {% endfor %}
 </div>
 {% endblock %}

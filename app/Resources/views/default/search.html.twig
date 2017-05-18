@@ -2,10 +2,12 @@
 
 {% set hasBreadcrumb = true %}
 
-{% block title %}{{ app.request.get('q') ? app.request.get('q') : 'Search'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|trans }}{% endblock %}
+{% block pageTitle %}{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }}{% endblock %}
+
+{% block title %}{{ app.request.get('q') ? app.request.get('q') : 'Search'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }}{% endblock %}
 
 {% block breadcrumb %}
-<span class="breadcrumb-item active">{{ 'The Kings\' Ride in Doloplazy'|trans }}</span>
+<span class="breadcrumb-item active">{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }}</span>
 <span class="breadcrumb-item active">{{ 'Search'|trans }}{% if app.request.get('q') %}: {{ app.request.get('q') }}{% endif %}</span>
 {% endblock %}
 

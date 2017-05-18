@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use AdminBundle\Entity\BaseEntity;
 
 /**
  * Sponsor
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="sponsor")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\SponsorRepository")
  */
-class Sponsor
+class Sponsor extends BaseEntity
 {
     /**
      * @var int
@@ -25,13 +27,25 @@ class Sponsor
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $name;
 
     /**
+     * @var SponsorKind
+     *
+     * @ORM\ManyToOne(targetEntity="SponsorKind")
+     * @ORM\JoinColumn(name="sponsor_kind_id", referencedColumnName="id", nullable=false)
+     * @Assert\NotBlank()
+     */
+    private $sponsorKind;
+
+    /**
      * @var Document
      *
-     * @ORM\OneToOne(targetEntity="Document")
+     * @ORM\OneToOne(targetEntity="Document", cascade={"persist"})
+     * @ORM\JoinColumn(name="document_id", referencedColumnName="id", nullable=false)
+     * @Assert\NotBlank()
      */
     private $logo;
 
@@ -91,5 +105,39 @@ class Sponsor
     public function getLogo()
     {
         return $this->logo;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+    public static function getIndexColumns()
+    {
+        return ['id', 'name', ['property' => 'logo.name', 'name' => 'Logo']];
+    }
+
+    /**
+     * Set sponsorKind
+     *
+     * @param \AppBundle\Entity\SponsorKind $sponsorKind
+     *
+     * @return SponsorKind
+     */
+    public function setSponsorKind(\AppBundle\Entity\SponsorKind $sponsorKind = null)
+    {
+        $this->sponsorKind = $sponsorKind;
+
+        return $this;
+    }
+
+    /**
+     * Get sponsorKind
+     *
+     * @return \AppBundle\Entity\SponsorKind
+     */
+    public function getSponsorKind()
+    {
+        return $this->sponsorKind;
     }
 }

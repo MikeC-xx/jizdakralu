@@ -2,15 +2,15 @@
 
 {% set hasBreadcrumb = true %}
 
-{% block title %}{{ 'Guest'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|trans }} {{ kingsRide.year }}{% endblock %}
+{% block title %}{{ 'Guest'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ kingsRide.year }}{% endblock %}
 
 {% block breadcrumb %}
-<span class="breadcrumb-item active">{{ 'The Kings\' Ride in Doloplazy'|trans }} {{ kingsRide.year }}</span>
-<span class="breadcrumb-item active">{{ 'Guest'|trans }}</span>
+<span class="breadcrumb-item active">{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ kingsRide.year }}</span>
+<span class="breadcrumb-item active">{{ 'Guest'|transchoice(1) }}</span>
 {% endblock %}
 
 {% block content %}
 <div class="container-fluid">
-    <h2>{{ 'Guest'|trans }}</h2>
+    <h2>{{ 'Guest'|transchoice(1) }}</h2>
 </div>
 {% endblock %}

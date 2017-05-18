@@ -4,15 +4,16 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 use AdminBundle\Entity\BaseEntity;
 
 /**
- * Performer
+ * SponsorKind
  *
- * @ORM\Table(name="performer")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PerformerRepository")
+ * @ORM\Table(name="sponsor_kind")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SponsorKindRepository")
  */
-class Performer extends BaseEntity
+class SponsorKind extends BaseEntity
 {
     /**
      * @var int
@@ -28,15 +29,9 @@ class Performer extends BaseEntity
      *
      * @ORM\Column(name="name", type="string", length=255)
      * @Assert\NotBlank()
+     * @Gedmo\Translatable()
      */
     private $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="text")
-     */
-    private $description;
 
 
     /**
@@ -54,7 +49,7 @@ class Performer extends BaseEntity
      *
      * @param string $name
      *
-     * @return Performer
+     * @return SponsorKind
      */
     public function setName($name)
     {
@@ -71,30 +66,6 @@ class Performer extends BaseEntity
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Performer
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 
     public function __toString()

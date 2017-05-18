@@ -5,15 +5,17 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\Uploadable\Uploadable as Uploadable;
+use AdminBundle\Entity\BaseEntity;
 
 /**
  * Document
  *
  * @ORM\Table(name="document", indexes={@ORM\Index(name="fulltext", columns={"file", "name", "mime_type", "description"}, flags={"fulltext"})})
  * @ORM\Entity(repositoryClass="AppBundle\Repository\DocumentRepository")
- * @Gedmo\Loggable()
+ * @Gedmo\Uploadable()
  */
-class Document
+class Document extends BaseEntity implements Uploadable
 {
     /**
      * @var int
@@ -30,7 +32,6 @@ class Document
      * @ORM\Column(name="file", type="string", length=255)
      * @Gedmo\UploadableFilePath()
      * @Assert\NotBlank()
-     * @Gedmo\Versioned()
      */
     private $file;
 
@@ -39,7 +40,6 @@ class Document
      *
      * @ORM\Column(name="name", type="string", length=255)
      * @Gedmo\UploadableFileName()
-     * @Gedmo\Versioned()
      */
     private $name;
 
@@ -64,7 +64,6 @@ class Document
      *
      * @ORM\Column(name="description", type="string", length=255)
      * @Assert\NotBlank()
-     * @Gedmo\Versioned()
      */
     private $description;
 
@@ -176,7 +175,7 @@ class Document
 
     public function __toString()
     {
-        return $this->getTitle();
+        return $this->getDescription();
     }
 
     /**
@@ -210,6 +209,11 @@ class Document
      */
     public function getWebPath()
     {
-        return $this->getFile();
+        return '/documents/' . $this->getName();
+    }
+
+    public static function getIndexColumns()
+    {
+        return ['id', 'description', 'name', 'mimeType', 'size', 'webPath'];
     }
 }

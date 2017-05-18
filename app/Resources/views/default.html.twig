@@ -13,12 +13,12 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ 'The Kings\' Ride in Doloplazy'|trans }} {{ currentYear }}
+                    {{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ currentYear }}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     {% for year in years %}
                         {% if currentYear != year %}
-                        <a class="dropdown-item" href="{{ year == activeYear ? path('homepage') : path('kings_ride', { 'year': year }) }}">{{ 'The Kings\' Ride in Doloplazy'|trans }} {{ year }}</a>
+                        <a class="dropdown-item" href="{{ year == activeYear ? path('homepage') : path('kings_ride', { 'year': year }) }}">{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ year }}</a>
                         {% endif %}
                     {% endfor %}
                 </div>
@@ -27,16 +27,16 @@
                 <a class="nav-link" href="{{ currentYear == activeYear ? path('homepage') : path('kings_ride', { 'year': currentYear }) }}">{{ 'Home'|trans }}</a>
             </li>
             <li class="nav-item{{ app.request.get('_route') == 'program' ? ' active' }}">
-                <a class="nav-link" href="{{ path('program', { 'year': currentYear }) }}">{{ 'Program'|trans }}</a>
+                <a class="nav-link" href="{{ path('program', { 'year': currentYear }) }}">{{ 'Program'|transchoice(1) }}</a>
             </li>
             <li class="nav-item{{ app.request.get('_route') == 'guest' ? ' active' }}">
-                <a class="nav-link" href="{{ path('guest', { 'year': currentYear }) }}">{{ 'Guest'|trans }}</a>
+                <a class="nav-link" href="{{ path('guest', { 'year': currentYear }) }}">{{ 'Guest'|transchoice(1) }}</a>
             </li>
             <li class="nav-item{{ app.request.get('_route') == 'performers' ? ' active' }}">
-                <a class="nav-link" href="{{ path('performers', { 'year': currentYear }) }}">{{ 'Performers'|trans }}</a>
+                <a class="nav-link" href="{{ path('performers', { 'year': currentYear }) }}">{{ 'Performer'|transchoice(2) }}</a>
             </li>
             <li class="nav-item{{ app.request.get('_route') == 'sponsors' ? ' active' }}">
-                <a class="nav-link" href="{{ path('sponsors', { 'year': currentYear }) }}">{{ 'Sponsors'|trans }}</a>
+                <a class="nav-link" href="{{ path('sponsors', { 'year': currentYear }) }}">{{ 'Sponsor'|transchoice(2) }}</a>
             </li>
         </ul>
         <ul class="navbar-nav mr-3">
@@ -70,6 +70,7 @@
 </nav>
 {% endif %}
 <main class="main{{ mainClass is defined ? ' ' ~ mainClass }}">
+    <h1 class="sr-only">{% block pageTitle %}{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ currentYear }}{% endblock %}</h1>
     {% block content %}{% endblock %}
 </main>
 <footer class="footer py-2">
@@ -89,7 +90,7 @@
             </a>
         </span>
         <span class="text-xs">
-            {{ 'Created by'|trans }} <a href="https://michael.cenker.cz" target="_blank">Michael Cenker</a> • <a href="{{ path('admin') }}">Admin</a>
+            {{ 'Created by'|trans }} <a href="https://michael.cenker.cz" target="_blank">Michael Cenker</a> • <a href="{{ path('admin_homepage') }}">Admin</a>
         </span>
     </div>
 </footer>

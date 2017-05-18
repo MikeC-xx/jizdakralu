@@ -3,6 +3,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use AdminBundle\Entity\BaseEntity;
 
 /**
  * King
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="king")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\KingRepository")
  */
-class King
+class King extends BaseEntity
 {
     /**
      * @var int
@@ -25,6 +27,7 @@ class King
      * @var string
      *
      * @ORM\Column(name="firstName", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $firstName;
 
@@ -32,6 +35,7 @@ class King
      * @var string
      *
      * @ORM\Column(name="lastName", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $lastName;
 
@@ -122,5 +126,20 @@ class King
     public function getPhoto()
     {
         return $this->photo;
+    }
+
+    public function getFullName()
+    {
+        return $this->getFirstName() . ' ' . $this->getLastName();
+    }
+
+    public function __toString()
+    {
+        return $this->getFullName();
+    }
+
+    public static function getIndexColumns()
+    {
+        return ['id', 'fullName'];
     }
 }

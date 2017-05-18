@@ -18,6 +18,7 @@
 /vendor/
 /web/bundles/*
 /web/css/*
+/web/documents/*
 /web/fonts/*
 /web/images/*
 /web/js/*

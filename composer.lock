@@ -4,9 +4,49 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "822f9caf0a2ad03c91dc35c52ff01f7e",
-    "content-hash": "f58876505f3e623155e203879ae366e1",
+    "hash": "84baed6f2c2fc96ee464a673d789162d",
+    "content-hash": "b72a09e37a019d3adf56ecb6b338dbc7",
     "packages": [
+        {
+            "name": "adminbundle",
+            "version": "1.0.1",
+            "target-dir": "AdminBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MikeC-xx/AdminBundle.git",
+                "reference": "ea1f365ea84d3733694fdb7c37cd0d7040e81ae6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MikeC-xx/AdminBundle/zipball/ea1f365ea84d3733694fdb7c37cd0d7040e81ae6",
+                "reference": "ea1f365ea84d3733694fdb7c37cd0d7040e81ae6",
+                "shasum": ""
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "AdminBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mikec",
+                    "email": "mike.cenker@gmail.com"
+                }
+            ],
+            "description": "AdminBundle",
+            "keywords": [
+                "admin bundle"
+            ],
+            "support": {
+                "source": "https://github.com/MikeC-xx/AdminBundle/tree/master",
+                "issues": "https://github.com/MikeC-xx/AdminBundle/issues"
+            },
+            "time": "2017-05-18 08:13:38"
+        },
         {
             "name": "behat/transliterator",
             "version": "v1.1.0",
