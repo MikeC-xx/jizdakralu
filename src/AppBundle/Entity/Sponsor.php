@@ -44,7 +44,6 @@ class Sponsor extends BaseEntity
      * @var Document
      *
      * @ORM\OneToOne(targetEntity="Document", cascade={"persist"})
-     * @ORM\JoinColumn(name="document_id", referencedColumnName="id", nullable=false)
      * @Assert\NotBlank()
      */
     private $logo;
