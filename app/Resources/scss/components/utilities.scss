@@ -12,3 +12,9 @@
 .text-xs {
     font-size: $font-size-xs;
 }
+
+@include media-breakpoint-down(md) {
+    .flex-md-1 {
+        flex: 1 0 auto;
+    }
+}

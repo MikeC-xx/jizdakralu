@@ -6,101 +6,112 @@
 {% if mainClass is not defined %}
 {% set mainClass = 'py-3' %}
 {% endif %}
+{% if hasFooter is not defined %}
+{% set hasFooter = true %}
+{% endif %}
 {% set showSearch = 'localhost' in url('homepage') or 'staging' in url('homepage') %}
 {% set showLang = showSearch %}
 
 {% block body %}
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-primary{{ navbarClass is defined ? ' ' ~ navbarClass }}">
-    <button class="navbar-toggler align-self-end" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    {{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ currentYear }}
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    {% for year in years %}
-                        {% if currentYear != year %}
-                        <a class="dropdown-item" href="{{ year == activeYear ? path('homepage') : path('kings_ride', { 'year': year }) }}">{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ year }}</a>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </li>
-            <li class="nav-item{{ app.request.get('_route') in ['homepage', 'kings_ride'] ? ' active' }}">
-                <a class="nav-link" href="{{ currentYear == activeYear ? path('homepage') : path('kings_ride', { 'year': currentYear }) }}">{{ 'Home'|trans }}</a>
-            </li>
-            <li class="nav-item{{ app.request.get('_route') == 'program' ? ' active' }}">
-                <a class="nav-link" href="{{ path('program', { 'year': currentYear }) }}">{{ 'Program'|transchoice(1) }}</a>
-            </li>
-            <li class="nav-item{{ app.request.get('_route') == 'guest' ? ' active' }}">
-                <a class="nav-link" href="{{ path('guest', { 'year': currentYear }) }}">{{ 'Guest'|transchoice(1) }}</a>
-            </li>
-            <li class="nav-item{{ app.request.get('_route') == 'performers' ? ' active' }}">
-                <a class="nav-link" href="{{ path('performers', { 'year': currentYear }) }}">{{ 'Performer'|transchoice(2) }}</a>
-            </li>
-            <li class="nav-item{{ app.request.get('_route') == 'sponsors' ? ' active' }}">
-                <a class="nav-link" href="{{ path('sponsors', { 'year': currentYear }) }}">{{ 'Sponsor'|transchoice(2) }}</a>
-            </li>
-        </ul>
-        <ul class="navbar-nav mr-3">
-            <li class="nav-item{{ app.request.get('_route') == 'history' ? ' active' }}">
-                <a class="nav-link" href="{{ path('history') }}">{{ 'History'|trans }}</a>
-            </li>
-            <li class="nav-item{{ app.request.get('_route') == 'organizer' ? ' active' }}">
-                <a class="nav-link" href="{{ path('organizer') }}">{{ 'Organizer'|trans }}</a>
-            </li>
+<nav class="navbar navbar-toggleable-sm navbar-inverse bg-primary{{ navbarClass is defined ? ' ' ~ navbarClass }}">
+    <div class="container px-0 px-sm-3 d-flex flex-column">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse flex-wrap" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto flex-md-1 justify-content-md-between justify-content-lg-start">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle pl-0" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ currentYear }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        {% for year in years %}
+                            {% if currentYear != year %}
+                            <a class="dropdown-item" href="{{ year == activeYear ? path('homepage') : path('kings_ride', { 'year': year }) }}">{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ year }}</a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </li>
+                <li class="nav-item{{ app.request.get('_route') in ['homepage', 'kings_ride'] ? ' active' }}">
+                    <a class="nav-link" href="{{ currentYear == activeYear ? path('homepage') : path('kings_ride', { 'year': currentYear }) }}">{{ 'Home'|trans }}</a>
+                </li>
+                <li class="nav-item{{ app.request.get('_route') == 'program' ? ' active' }}">
+                    <a class="nav-link" href="{{ path('program', { 'year': currentYear }) }}">{{ 'Program'|transchoice(1) }}</a>
+                </li>
+                <li class="nav-item{{ app.request.get('_route') == 'guest' ? ' active' }}">
+                    <a class="nav-link" href="{{ path('guest', { 'year': currentYear }) }}">{{ 'Guest'|transchoice(1) }}</a>
+                </li>
+                <li class="nav-item{{ app.request.get('_route') == 'performers' ? ' active' }}">
+                    <a class="nav-link" href="{{ path('performers', { 'year': currentYear }) }}">{{ 'Performer'|transchoice(2) }}</a>
+                </li>
+                <li class="nav-item{{ app.request.get('_route') == 'sponsors' ? ' active' }}">
+                    <a class="nav-link pr-md-0 pr-lg-2" href="{{ path('sponsors', { 'year': currentYear }) }}">{{ 'Sponsor'|transchoice(2) }}</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav flex-wrap">
+                <li class="nav-item{{ app.request.get('_route') == 'history' ? ' active' }}">
+                    <a class="nav-link pl-0" href="{{ path('history') }}">{{ 'History'|trans }}</a>
+                </li>
+                <li class="nav-item{{ app.request.get('_route') == 'organizer' ? ' active' }}">
+                    <a class="nav-link" href="{{ path('organizer') }}">{{ 'Organizer'|trans }}</a>
+                </li>
+            </ul>
             {% if showLang %}
-            <li class="nav-item">
-                {% set routeName = app.request.get('_route') is empty ? 'homepage' : app.request.get('_route') %}
-                {% set routeParams = app.request.get('_route_params') ? app.request.get('_route_params')|merge({ '_locale': app.request.get('_locale') == 'en' ? 'cs' : 'en' }) : {} %}
-                <a class="nav-link" href="{{ path(routeName, routeParams) }}">
-                    <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ app.request.get('_locale') == 'en' ? 'Česky' : 'English' }}
-                </a>
-            </li>
+            <ul class="navbar-nav ml-md-auto ml-lg-0">
+                <li class="nav-item">
+                    {% set routeName = app.request.get('_route') is empty ? 'homepage' : app.request.get('_route') %}
+                    {% set routeParams = app.request.get('_route_params') ? app.request.get('_route_params')|merge({ '_locale': app.request.get('_locale') == 'en' ? 'cs' : 'en' }) : {} %}
+                    <a class="nav-link pr-md-3 pr-lg-0 pr-xl-3" href="{{ path(routeName, routeParams) }}">
+                        <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ app.request.get('_locale') == 'en' ? 'Česky' : 'English' }}
+                    </a>
+                </li>
+            </ul>
             {% endif %}
-        </ul>
-        {% if showSearch %}
-        <form class="form-inline" action="{{ path('search') }}" method="GET">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control form-control-sm" placeholder="{{ 'Search'|trans }}">
-                <span class="input-group-btn">
-                    <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-                </span>
-            </div>
-        </form>
-        {% endif %}
+            {% if showSearch %}
+            <form class="form-inline ml-lg-auto ml-xl-0" action="{{ path('search') }}" method="GET">
+                <div class="input-group">
+                    <input type="text" name="q" class="form-control form-control-sm" placeholder="{{ 'Search'|trans }}">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </span>
+                </div>
+            </form>
+            {% endif %}
+        </div>
     </div>
 </nav>
 {% if hasBreadcrumb is defined and hasBreadcrumb %}
-<nav class="breadcrumb">
-    {% block breadcrumb %}{% endblock %}
+<nav class="breadcrumb px-0">
+    <div class="container">
+        {% block breadcrumb %}{% endblock %}
+    </div>
 </nav>
 {% endif %}
 <main class="main{{ mainClass is defined ? ' ' ~ mainClass }}">
     <h1 class="sr-only">{% block pageTitle %}{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ currentYear }}{% endblock %}</h1>
     {% block content %}{% endblock %}
 </main>
-<footer class="footer py-2">
-    <div class="container-fluid d-flex flex-column align-items-center flex-md-row align-items-md-end justify-content-md-between">
-        <span class="mb-3 mb-md-0 d-flex flex-wrap justify-content-center align-items-center">
-            <a href="https://get.google.com/albumarchive/104108687496704590123" target="_blank" class="mr-4">
+{% if hasFooter %}
+<footer class="footer py-3">
+    <div class="container d-flex flex-column align-items-center align-items-md-start">
+        <div class="d-flex justify-content-center flex-wrap mb-4">
+            <a href="https://get.google.com/albumarchive/104108687496704590123" target="_blank" class="mr-5 mb-2">
                 <i class="fa fa-camera mr-2" aria-hidden="true"></i>{{ 'Photos'|trans }}
             </a>
-            <a href="https://www.youtube.com/channel/UCLA2-D8BF85ZDPhv40ompXw" target="_blank" class="mr-4">
+            <a href="https://www.youtube.com/channel/UCLA2-D8BF85ZDPhv40ompXw" target="_blank" class="mr-5 mb-2">
                 <i class="fa fa-youtube-play mr-2" aria-hidden="true"></i>{{ 'Videos'|trans }}
             </a>
-            <a href="{{ path('downloads' )}}" class="mr-4">
+            <a href="{{ path('downloads' )}}" class="mr-5 mb-2">
                 <i class="fa fa-download mr-2" aria-hidden="true"></i>{{ 'Downloads'|trans }}
             </a>
-            <a href="https://olesnica.cz" target="_blank" class="mr-4">
+            <a href="https://olesnica.cz" target="_blank" class="mb-2">
                 Olešnica Doloplazy
             </a>
-        </span>
-        <span class="text-xs">
+        </div>
+        <div class="text-xs">
             {{ 'Created by'|trans }} <a href="https://michael.cenker.cz" target="_blank">Michael Cenker</a> • <a href="{{ path('admin_homepage') }}">Admin</a>
-        </span>
+        </div>
     </div>
 </footer>
+{% endif %}
 {% endblock %}
