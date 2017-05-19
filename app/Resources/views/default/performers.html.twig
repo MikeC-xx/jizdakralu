@@ -12,7 +12,7 @@
 {% block content %}
 <div class="container">
     <h2 class="mb-4">{{ 'Performers'|trans }}</h2>
-    {% for performer in kingsRide.performers %}
+    {% for performer in performers %}
         <div class="mb-5">
             <h3>{{ performer.name }}</h3>
             {{ performer.description|raw }}
