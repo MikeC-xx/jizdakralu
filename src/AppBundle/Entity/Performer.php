@@ -48,9 +48,9 @@ class Performer extends BaseEntity
     /**
      * @var integer
      *
-     * @ORM\Column(name="position", type="integer")
+     * @ORM\Column(name="sortOrder", type="integer")
      */
-    private $position;
+    private $sortOrder;
 
 
     /**
@@ -146,26 +146,26 @@ class Performer extends BaseEntity
     }
 
     /**
-     * Set position
+     * Set sortOrder
      *
-     * @param integer $position
+     * @param integer $sortOrder
      *
      * @return Performer
      */
-    public function setPosition($position)
+    public function setSortOrder($sortOrder)
     {
-        $this->position = $position;
+        $this->sortOrder = $sortOrder;
 
         return $this;
     }
 
     /**
-     * Get position
+     * Get sortOrder
      *
      * @return integer
      */
-    public function getPosition()
+    public function getSortOrder()
     {
-        return $this->position;
+        return $this->sortOrder;
     }
 }

@@ -42,19 +42,7 @@ class DefaultController extends Controller
      */
     public function performersAction(Request $request, KingsRide $kingsRide)
     {
-        $performers = $kingsRide->getPerformers();
-
-        usort($performers, function ($a, $b) {
-            if ($a->getPosition() > $b->getPosition()) {
-                return 1;
-            } else if ($a->getPosition() < $b->getPosition()) {
-                return -1;
-            } else {
-                return 0;
-            }
-        });
-
-        return $this->render('default/performers.html.twig', ['kingsRide' => $kingsRide, 'performers' => $performers]);
+        return $this->render('default/performers.html.twig', ['kingsRide' => $kingsRide]);
     }
 
     /**
