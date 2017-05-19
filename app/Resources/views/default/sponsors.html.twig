@@ -14,7 +14,7 @@
     {% for sponsorKind in sponsors|keys %}
         <div class="mb-5">
             <h2>{{ sponsorKind }}</h2>
-            <div class="d-flex flex-wrap">
+            <div class="d-flex flex-wrap align-items-center">
             {% for sponsor in sponsors[sponsorKind] %}
                 <h3 class="sr-only">{{ sponsor.name }}</h3>
                 {% if sponsor.logo %}
