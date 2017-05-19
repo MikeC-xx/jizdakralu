@@ -9,17 +9,17 @@
     "packages": [
         {
             "name": "adminbundle",
-            "version": "1.0.1",
+            "version": "1.0.3",
             "target-dir": "AdminBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MikeC-xx/AdminBundle.git",
-                "reference": "ea1f365ea84d3733694fdb7c37cd0d7040e81ae6"
+                "reference": "544cc31e844dce1f992e3db6f25a79a6b0ed0a34"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MikeC-xx/AdminBundle/zipball/ea1f365ea84d3733694fdb7c37cd0d7040e81ae6",
-                "reference": "ea1f365ea84d3733694fdb7c37cd0d7040e81ae6",
+                "url": "https://api.github.com/repos/MikeC-xx/AdminBundle/zipball/544cc31e844dce1f992e3db6f25a79a6b0ed0a34",
+                "reference": "544cc31e844dce1f992e3db6f25a79a6b0ed0a34",
                 "shasum": ""
             },
             "type": "symfony-bundle",
@@ -42,10 +42,10 @@
                 "admin bundle"
             ],
             "support": {
-                "source": "https://github.com/MikeC-xx/AdminBundle/tree/master",
+                "source": "https://github.com/MikeC-xx/AdminBundle/tree/1.0.3",
                 "issues": "https://github.com/MikeC-xx/AdminBundle/issues"
             },
-            "time": "2017-05-18 08:13:38"
+            "time": "2017-05-19 09:51:01"
         },
         {
             "name": "behat/transliterator",
