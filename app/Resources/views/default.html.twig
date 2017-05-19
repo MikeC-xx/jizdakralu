@@ -3,6 +3,11 @@
 {% set years = [2016, 2017] %}
 {% set activeYear = 2017 %}
 {% set currentYear = kingsRide is defined ? kingsRide.year : activeYear %}
+{% if mainClass is not defined %}
+{% set mainClass = 'py-3' %}
+{% endif %}
+{% set showSearch = 'localhost' in url('homepage') or 'staging' in url('homepage') %}
+{% set showLang = showSearch %}
 
 {% block body %}
 <nav class="navbar navbar-toggleable-md navbar-inverse bg-primary{{ navbarClass is defined ? ' ' ~ navbarClass }}">
@@ -46,6 +51,7 @@
             <li class="nav-item{{ app.request.get('_route') == 'organizer' ? ' active' }}">
                 <a class="nav-link" href="{{ path('organizer') }}">{{ 'Organizer'|trans }}</a>
             </li>
+            {% if showLang %}
             <li class="nav-item">
                 {% set routeName = app.request.get('_route') is empty ? 'homepage' : app.request.get('_route') %}
                 {% set routeParams = app.request.get('_route_params') ? app.request.get('_route_params')|merge({ '_locale': app.request.get('_locale') == 'en' ? 'cs' : 'en' }) : {} %}
@@ -53,7 +59,9 @@
                     <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ app.request.get('_locale') == 'en' ? 'Česky' : 'English' }}
                 </a>
             </li>
+            {% endif %}
         </ul>
+        {% if showSearch %}
         <form class="form-inline" action="{{ path('search') }}" method="GET">
             <div class="input-group">
                 <input type="text" name="q" class="form-control form-control-sm" placeholder="{{ 'Search'|trans }}">
@@ -62,6 +70,7 @@
                 </span>
             </div>
         </form>
+        {% endif %}
     </div>
 </nav>
 {% if hasBreadcrumb is defined and hasBreadcrumb %}

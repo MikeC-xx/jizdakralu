@@ -32,6 +32,13 @@ class Performer extends BaseEntity
     private $name;
 
     /**
+     * @var Document
+     *
+     * @ORM\OneToOne(targetEntity="Document", cascade={"persist"})
+     */
+    private $photo;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="description", type="text")
@@ -105,5 +112,29 @@ class Performer extends BaseEntity
     public static function getIndexColumns()
     {
         return ['id', 'name'];
+    }
+
+    /**
+     * Set photo
+     *
+     * @param \AppBundle\Entity\Document $photo
+     *
+     * @return Performer
+     */
+    public function setPhoto(\AppBundle\Entity\Document $photo = null)
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    /**
+     * Get photo
+     *
+     * @return \AppBundle\Entity\Document
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
     }
 }

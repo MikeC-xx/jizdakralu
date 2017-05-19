@@ -11,6 +11,11 @@
 
 {% block content %}
 <div class="container-fluid">
-    <h2>{{ 'Guest'|transchoice(1) }}</h2>
+    <h2 class="mb-3">{{ 'Guest'|transchoice(1) }}</h2>
+    <h3>{{ kingsRide.guest.name }}</h3>
+    {{ kingsRide.guest.description|raw }}
+    {% if kingsRide.guest.photo %}
+    <img src="{{ asset(kingsRide.guest.photo.webPath) }}" alt="{{ kingsRide.guest.photo.description }}" class="img-fluid">
+    {% endif %}
 </div>
 {% endblock %}

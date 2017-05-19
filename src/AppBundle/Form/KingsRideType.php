@@ -13,9 +13,17 @@ class KingsRideType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('year')->add('introduction')->add('saturdayProgram')->add('sundayProgram')->add('king')->add('sponsors');
+        $builder
+            ->add('year')
+            ->add('introduction')
+            ->add('saturdayProgram', null, ['attr' => ['class' => 'wysiwyg']])
+            ->add('sundayProgram', null, ['attr' => ['class' => 'wysiwyg']])
+            ->add('king')
+            ->add('guest')
+            ->add('performers')
+            ->add('sponsors');
     }
-    
+
     /**
      * {@inheritdoc}
      */

@@ -50,7 +50,14 @@ class DefaultController extends Controller
      */
     public function sponsorsAction(Request $request, KingsRide $kingsRide)
     {
-        return $this->render('default/sponsors.html.twig', ['kingsRide' => $kingsRide]);
+        $sponsors = [];
+
+        foreach($kingsRide->getSponsors() as $sponsor)
+        {
+            $sponsors[$sponsor->getSponsorKind()->getName()][] = $sponsor;
+        }
+
+        return $this->render('default/sponsors.html.twig', ['kingsRide' => $kingsRide, 'sponsors' => $sponsors]);
     }
 
     /**

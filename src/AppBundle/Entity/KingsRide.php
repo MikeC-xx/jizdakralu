@@ -65,6 +65,18 @@ class KingsRide extends BaseEntity
     private $king;
 
     /**
+     * @var Guest
+     *
+     * @ORM\ManyToOne(targetEntity="Guest")
+     */
+    private $guest;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Performer")
+     */
+    private $performers;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Sponsor")
      */
     private $sponsors;
@@ -263,5 +275,63 @@ class KingsRide extends BaseEntity
     public function getHasTranslatableToString()
     {
         return true;
+    }
+
+    /**
+     * Set guest
+     *
+     * @param \AppBundle\Entity\Guest $guest
+     *
+     * @return KingsRide
+     */
+    public function setGuest(\AppBundle\Entity\Guest $guest = null)
+    {
+        $this->guest = $guest;
+
+        return $this;
+    }
+
+    /**
+     * Get guest
+     *
+     * @return \AppBundle\Entity\Guest
+     */
+    public function getGuest()
+    {
+        return $this->guest;
+    }
+
+    /**
+     * Add performer
+     *
+     * @param \AppBundle\Entity\Performer $performer
+     *
+     * @return KingsRide
+     */
+    public function addPerformer(\AppBundle\Entity\Performer $performer)
+    {
+        $this->performers[] = $performer;
+
+        return $this;
+    }
+
+    /**
+     * Remove performer
+     *
+     * @param \AppBundle\Entity\Performer $performer
+     */
+    public function removePerformer(\AppBundle\Entity\Performer $performer)
+    {
+        $this->performers->removeElement($performer);
+    }
+
+    /**
+     * Get performers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPerformers()
+    {
+        return $this->performers;
     }
 }

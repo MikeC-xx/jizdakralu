@@ -14,7 +14,10 @@ class GuestType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('description')->add('photo', DocumentType::class);
+        $builder
+            ->add('name')
+            ->add('description', null, ['attr' => ['class' => 'wysiwyg']])
+            ->add('photo', DocumentType::class);
     }
 
     /**

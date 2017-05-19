@@ -11,6 +11,15 @@
 
 {% block content %}
 <div class="container-fluid">
-    <h2>{{ 'Performers'|trans }}</h2>
+    <h2 class="mb-4">{{ 'Performers'|trans }}</h2>
+    {% for performer in kingsRide.performers %}
+        <div class="mb-5">
+            <h3>{{ performer.name }}</h3>
+            {{ performer.description|raw }}
+            {% if performer.photo %}
+            <img src="{{ asset(performer.photo.webPath) }}" alt="{{ performer.photo.description }}" class="img-fluid">
+            {% endif %}
+        </div>
+    {% endfor %}
 </div>
 {% endblock %}

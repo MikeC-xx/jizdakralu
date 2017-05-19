@@ -28,7 +28,7 @@ class AssetVersionStrategy implements VersionStrategyInterface
     public function getVersion($path)
     {
         $fullPath = $this->root . '/../web/' . $path;
-        if (file_exists($fullPath)) {
+        if (file_exists($fullPath) && !is_dir($fullPath)) {
             $version = filemtime($fullPath);
             if (!$version) {
                 $version = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
@@ -36,7 +36,7 @@ class AssetVersionStrategy implements VersionStrategyInterface
 
             return $version;
         } else {
-            return '';
+            return false;
         }
     }
 
