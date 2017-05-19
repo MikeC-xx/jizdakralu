@@ -2,6 +2,8 @@
 
 {% set hasBreadcrumb = true %}
 
+{% set metaDescription = 'Výsledky vyhledávání.' %}
+
 {% block pageTitle %}{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }}{% endblock %}
 
 {% block title %}{{ app.request.get('q') ? app.request.get('q') : 'Search'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }}{% endblock %}

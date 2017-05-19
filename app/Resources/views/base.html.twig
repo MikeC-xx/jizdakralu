@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ app.request.get('_locale') }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{% block title %}{{ 'The Kings\' Ride'|transchoice(1) }} — {{ 'Doloplazy (near Olomouc)'|trans }}{% endblock %}</title>
+        {% if metaDescription is defined %}<meta name="description" content="{{ metaDescription }}">{% endif %}
         {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('css/main.min.css') }}">
         {% endblock %}
