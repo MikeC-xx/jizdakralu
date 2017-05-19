@@ -114,7 +114,7 @@ class Sponsor extends BaseEntity
 
     public static function getIndexColumns()
     {
-        return ['id', 'name', ['property' => 'logo.name', 'name' => 'Logo']];
+        return ['id', 'name', ['property' => 'logo.name', 'name' => 'Logo'], ['property' => 'sponsorKind.name', 'name' => 'Sponsor kind'];
     }
 
     /**
