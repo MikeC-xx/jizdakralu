@@ -10,6 +10,7 @@
 
 {% block content %}
 <div class="container">
-    <h2>{{ 'An error occurred'|trans }} <small>{{ status_code }} {{ status_text }}</small></h2>
+    <h2>{{ 'An error occurred'|trans }}</h2>
+    <p class="lead">{{ status_text }}</p>
 </div>
 {% endblock %}
