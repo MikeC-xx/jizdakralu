@@ -48,7 +48,7 @@ class Performer extends BaseEntity
     /**
      * @var integer
      *
-     * @ORM\Column(name="sortOrder", type="integer")
+     * @ORM\Column(name="sort_order", type="integer")
      */
     private $sortOrder;
 
