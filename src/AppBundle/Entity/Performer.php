@@ -45,6 +45,13 @@ class Performer extends BaseEntity
      */
     private $description;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="position", type="integer")
+     */
+    private $position;
+
 
     /**
      * Get id
@@ -136,5 +143,29 @@ class Performer extends BaseEntity
     public function getPhoto()
     {
         return $this->photo;
+    }
+
+    /**
+     * Set position
+     *
+     * @param integer $position
+     *
+     * @return Performer
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return integer
+     */
+    public function getPosition()
+    {
+        return $this->position;
     }
 }

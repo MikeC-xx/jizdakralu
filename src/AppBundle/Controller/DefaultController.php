@@ -57,6 +57,16 @@ class DefaultController extends Controller
             $sponsors[$sponsor->getSponsorKind()->getName()][] = $sponsor;
         }
 
+        usort($sponsors, function ($a, $b) {
+            if ($a->getPosition() > $b->getPosition()) {
+                return 1;
+            } else if ($a->getPosition() < $b->getPosition()) {
+                return -1;
+            } else {
+                return 0;
+            }
+        });
+
         return $this->render('default/sponsors.html.twig', ['kingsRide' => $kingsRide, 'sponsors' => $sponsors]);
     }
 
