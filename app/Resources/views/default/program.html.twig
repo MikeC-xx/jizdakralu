@@ -12,9 +12,9 @@
 {% block content %}
 <div class="container-fluid">
     <h2 class="mb-3">{{ 'Program'|trans }}</h2>
-    <h3>{{ kingsRide.startDate|localizeddate('none', 'none', app.request.locale, null, 'EEEE d. MMMM YYYY' ) }}</h3>
+    <h3>{{ 'Feast party' }} {{ kingsRide.startDate|localizeddate('none', 'none', app.request.locale, null, 'EEEE d. MMMM YYYY' ) }}</h3>
     {{ kingsRide.saturdayProgram|raw }}
-    <h3>{{ kingsRide.endDate|localizeddate('none', 'none', app.request.locale, null, 'EEEE d. MMMM YYYY' ) }}</h3>
+    <h3>{{ 'The Kings\' Ride'|transchoice(1) }} {{ kingsRide.endDate|localizeddate('none', 'none', app.request.locale, null, 'EEEE d. MMMM YYYY' ) }}</h3>
     {{ kingsRide.sundayProgram|raw }}
 </div>
 {% endblock %}
