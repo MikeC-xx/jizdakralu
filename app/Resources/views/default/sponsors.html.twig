@@ -17,7 +17,11 @@
             <div class="d-flex flex-wrap">
             {% for sponsor in sponsors[sponsorKind] %}
                 <h3 class="sr-only">{{ sponsor.name }}</h3>
+                {% if sponsor.logo %}
                 <img src="{{ asset(sponsor.logo.webPath) }}" title="{{ sponsor.name }}" alt="{{ sponsor.logo.description }}" height="60" class="mr-4 mb-4">
+                {% else %}
+                <span class="mr-4 mb-4">{{ sponsor.name }}</span>
+                {% endif %}
             {% endfor %}
             </div>
         </div>
