@@ -9,9 +9,6 @@
 
 {% block content %}
     <div class="container py-3 mb-5 text-center text-white">
-        <p class="lead mb-5">
-            {{ kingsRide.introduction }}
-        </p>
         <p class="display-3 font-forte mb-5">
             {{ 'The Kings\' Ride'|transchoice(1) }}
         </p>
@@ -22,5 +19,33 @@
         {% if kingsRide.king %}
         <p class="display-4 font-forte">{{ 'King'|transchoice(1) }}: {{ kingsRide.king.fullName }}</p>
         {% endif %}
+        <p class="lead">
+            {{ kingsRide.introduction }}
+        </p>
+        <p class="logos d-flex justify-content-center align-items-center">
+            {% for sponsor in kingsRide.sponsors if sponsor.sponsorKind.id == 1 %}
+            {{ source('@documents/' ~ sponsor.logo.name) }}
+            {% endfor %}
+        </p>
     </div>
+{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<style>
+    .logos > svg {
+        height: 70px;
+        margin-right: 16px;
+        margin-right: 1rem;
+    }
+
+    .logos > svg:first-child {
+        height: 110px;
+    }
+
+    path.text-logo,
+    .text-logo path {
+        fill: #fff;
+    }
+</style>
 {% endblock %}
