@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class KingsRideType extends AbstractType
 {
@@ -15,7 +16,7 @@ class KingsRideType extends AbstractType
     {
         $builder
             ->add('year')
-            ->add('introduction', null, ['attr' => ['class' => 'wysiwyg']])
+            ->add('introduction', TextareaType::class, ['attr' => ['class' => 'wysiwyg']])
             ->add('saturdayProgram', null, ['attr' => ['class' => 'wysiwyg']])
             ->add('sundayProgram', null, ['attr' => ['class' => 'wysiwyg']])
             ->add('king')
