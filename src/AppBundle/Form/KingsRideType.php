@@ -15,7 +15,7 @@ class KingsRideType extends AbstractType
     {
         $builder
             ->add('year')
-            ->add('introduction')
+            ->add('introduction', null, ['attr' => ['class' => 'wysiwyg']])
             ->add('saturdayProgram', null, ['attr' => ['class' => 'wysiwyg']])
             ->add('sundayProgram', null, ['attr' => ['class' => 'wysiwyg']])
             ->add('king')
