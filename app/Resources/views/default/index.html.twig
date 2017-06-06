@@ -22,7 +22,7 @@
         <p class="lead">
             {{ kingsRide.introduction }}
         </p>
-        <p class="logos d-flex justify-content-center align-items-center">
+        <p class="logos d-flex flex-wrap justify-content-center align-items-center">
             {% for sponsor in kingsRide.sponsors if sponsor.sponsorKind.id == 1 %}
             {{ source('@documents/' ~ sponsor.logo.name) }}
             {% endfor %}
