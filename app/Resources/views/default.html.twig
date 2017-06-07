@@ -13,80 +13,82 @@
 {% set showLang = showSearch %}
 
 {% block body %}
-<nav class="navbar navbar-toggleable-sm navbar-inverse bg-primary{{ navbarClass is defined ? ' ' ~ navbarClass }}">
-    <div class="container px-0 px-sm-3 d-flex flex-column">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse flex-wrap" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto flex-md-1 justify-content-md-between justify-content-lg-start">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle pl-0" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ currentYear }}
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        {% for year in years %}
-                            {% if currentYear != year %}
-                            <a class="dropdown-item" href="{{ year == activeYear ? path('homepage') : path('kings_ride', { 'year': year }) }}">{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ year }}</a>
-                            {% endif %}
-                        {% endfor %}
+<header class="header">
+    <nav class="navbar navbar-toggleable-sm navbar-inverse bg-primary{{ navbarClass is defined ? ' ' ~ navbarClass }}">
+        <div class="container px-0 px-sm-3 d-flex flex-column">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-wrap" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto flex-md-1 justify-content-md-between justify-content-lg-start">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle pl-0" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ currentYear }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            {% for year in years %}
+                                {% if currentYear != year %}
+                                <a class="dropdown-item" href="{{ year == activeYear ? path('homepage') : path('kings_ride', { 'year': year }) }}">{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ year }}</a>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </li>
+                    <li class="nav-item{{ app.request.get('_route') in ['homepage', 'kings_ride'] ? ' active' }}">
+                        <a class="nav-link" href="{{ currentYear == activeYear ? path('homepage') : path('kings_ride', { 'year': currentYear }) }}">{{ 'Home'|trans }}</a>
+                    </li>
+                    <li class="nav-item{{ app.request.get('_route') == 'program' ? ' active' }}">
+                        <a class="nav-link" href="{{ path('program', { 'year': currentYear }) }}">{{ 'Program'|transchoice(1) }}</a>
+                    </li>
+                    <li class="nav-item{{ app.request.get('_route') == 'guest' ? ' active' }}">
+                        <a class="nav-link" href="{{ path('guest', { 'year': currentYear }) }}">{{ 'Guest'|transchoice(1) }}</a>
+                    </li>
+                    <li class="nav-item{{ app.request.get('_route') == 'performers' ? ' active' }}">
+                        <a class="nav-link" href="{{ path('performers', { 'year': currentYear }) }}">{{ 'Performer'|transchoice(2) }}</a>
+                    </li>
+                    <li class="nav-item{{ app.request.get('_route') == 'sponsors' ? ' active' }}">
+                        <a class="nav-link pr-md-0 pr-lg-2" href="{{ path('sponsors', { 'year': currentYear }) }}">{{ 'Sponsor'|transchoice(2) }}</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav flex-wrap">
+                    <li class="nav-item{{ app.request.get('_route') == 'history' ? ' active' }}">
+                        <a class="nav-link pl-0" href="{{ path('history') }}">{{ 'History'|trans }}</a>
+                    </li>
+                    <li class="nav-item{{ app.request.get('_route') == 'organizer' ? ' active' }}">
+                        <a class="nav-link" href="{{ path('organizer') }}">{{ 'Organizer'|trans }}</a>
+                    </li>
+                </ul>
+                {% if showLang %}
+                <ul class="navbar-nav ml-md-auto ml-lg-0">
+                    <li class="nav-item">
+                        {% set routeName = app.request.get('_route') is empty ? 'homepage' : app.request.get('_route') %}
+                        {% set routeParams = app.request.get('_route_params') ? app.request.get('_route_params')|merge({ '_locale': app.request.get('_locale') == 'en' ? 'cs' : 'en' }) : {} %}
+                        <a class="nav-link pr-md-3 pr-lg-0 pr-xl-3" href="{{ path(routeName, routeParams) }}">
+                            <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ app.request.get('_locale') == 'en' ? 'Česky' : 'English' }}
+                        </a>
+                    </li>
+                </ul>
+                {% endif %}
+                {% if showSearch %}
+                <form class="form-inline ml-lg-auto ml-xl-0" action="{{ path('search') }}" method="GET">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control form-control-sm" placeholder="{{ 'Search'|trans }}">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </span>
                     </div>
-                </li>
-                <li class="nav-item{{ app.request.get('_route') in ['homepage', 'kings_ride'] ? ' active' }}">
-                    <a class="nav-link" href="{{ currentYear == activeYear ? path('homepage') : path('kings_ride', { 'year': currentYear }) }}">{{ 'Home'|trans }}</a>
-                </li>
-                <li class="nav-item{{ app.request.get('_route') == 'program' ? ' active' }}">
-                    <a class="nav-link" href="{{ path('program', { 'year': currentYear }) }}">{{ 'Program'|transchoice(1) }}</a>
-                </li>
-                <li class="nav-item{{ app.request.get('_route') == 'guest' ? ' active' }}">
-                    <a class="nav-link" href="{{ path('guest', { 'year': currentYear }) }}">{{ 'Guest'|transchoice(1) }}</a>
-                </li>
-                <li class="nav-item{{ app.request.get('_route') == 'performers' ? ' active' }}">
-                    <a class="nav-link" href="{{ path('performers', { 'year': currentYear }) }}">{{ 'Performer'|transchoice(2) }}</a>
-                </li>
-                <li class="nav-item{{ app.request.get('_route') == 'sponsors' ? ' active' }}">
-                    <a class="nav-link pr-md-0 pr-lg-2" href="{{ path('sponsors', { 'year': currentYear }) }}">{{ 'Sponsor'|transchoice(2) }}</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav flex-wrap">
-                <li class="nav-item{{ app.request.get('_route') == 'history' ? ' active' }}">
-                    <a class="nav-link pl-0" href="{{ path('history') }}">{{ 'History'|trans }}</a>
-                </li>
-                <li class="nav-item{{ app.request.get('_route') == 'organizer' ? ' active' }}">
-                    <a class="nav-link" href="{{ path('organizer') }}">{{ 'Organizer'|trans }}</a>
-                </li>
-            </ul>
-            {% if showLang %}
-            <ul class="navbar-nav ml-md-auto ml-lg-0">
-                <li class="nav-item">
-                    {% set routeName = app.request.get('_route') is empty ? 'homepage' : app.request.get('_route') %}
-                    {% set routeParams = app.request.get('_route_params') ? app.request.get('_route_params')|merge({ '_locale': app.request.get('_locale') == 'en' ? 'cs' : 'en' }) : {} %}
-                    <a class="nav-link pr-md-3 pr-lg-0 pr-xl-3" href="{{ path(routeName, routeParams) }}">
-                        <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ app.request.get('_locale') == 'en' ? 'Česky' : 'English' }}
-                    </a>
-                </li>
-            </ul>
-            {% endif %}
-            {% if showSearch %}
-            <form class="form-inline ml-lg-auto ml-xl-0" action="{{ path('search') }}" method="GET">
-                <div class="input-group">
-                    <input type="text" name="q" class="form-control form-control-sm" placeholder="{{ 'Search'|trans }}">
-                    <span class="input-group-btn">
-                        <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-                    </span>
-                </div>
-            </form>
-            {% endif %}
+                </form>
+                {% endif %}
+            </div>
         </div>
-    </div>
-</nav>
-{% if hasBreadcrumb is defined and hasBreadcrumb %}
-<nav class="breadcrumb px-0">
-    <div class="container">
-        {% block breadcrumb %}{% endblock %}
-    </div>
-</nav>
-{% endif %}
+    </nav>
+    {% if hasBreadcrumb is defined and hasBreadcrumb %}
+    <nav class="breadcrumb px-0">
+        <div class="container">
+            {% block breadcrumb %}{% endblock %}
+        </div>
+    </nav>
+    {% endif %}
+</header>
 <main class="main{{ mainClass is defined ? ' ' ~ mainClass }}">
     <h1 class="sr-only">{% block pageTitle %}{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ currentYear }}{% endblock %}</h1>
     {% block content %}{% endblock %}
