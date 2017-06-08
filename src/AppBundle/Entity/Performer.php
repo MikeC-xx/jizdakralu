@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 use AdminBundle\Entity\BaseEntity;
 
 /**
@@ -28,6 +29,7 @@ class Performer extends BaseEntity
      *
      * @ORM\Column(name="name", type="string", length=255)
      * @Assert\NotBlank()
+     * @Gedmo\Translatable()
      */
     private $name;
 
@@ -42,6 +44,7 @@ class Performer extends BaseEntity
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     * @Gedmo\Translatable()
      */
     private $description;
 
@@ -51,7 +54,6 @@ class Performer extends BaseEntity
      * @ORM\Column(name="sort_order", type="integer")
      */
     private $sortOrder;
-
 
     /**
      * Get id
