@@ -42,7 +42,7 @@ class King extends BaseEntity
     /**
      * @var Document
      *
-     * @ORM\OneToOne(targetEntity="Document")
+     * @ORM\OneToOne(targetEntity="Document", cascade={"persist"})
      */
     private $photo;
 
