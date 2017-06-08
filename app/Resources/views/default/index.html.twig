@@ -19,9 +19,9 @@
         {% if kingsRide.king %}
         <p class="display-4 font-forte">{{ 'King'|transchoice(1) }}: {{ kingsRide.king.fullName }}</p>
         {% endif %}
-        <p class="lead">
+        <div class="lead">
             {{ kingsRide.introduction|raw }}
-        </p>
+        </div>
         <p class="logos d-flex flex-wrap justify-content-center align-items-center">
             {% for sponsor in kingsRide.sponsors if sponsor.sponsorKind.id == 1 %}
             {{ source('@documents/' ~ sponsor.logo.name) }}
