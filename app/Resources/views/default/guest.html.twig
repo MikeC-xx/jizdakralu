@@ -17,7 +17,9 @@
     <h3>{{ kingsRide.guest.name }}</h3>
     {{ kingsRide.guest.description|raw }}
     {% if kingsRide.guest.photo %}
-    <img src="{{ asset(kingsRide.guest.photo.webPath) }}" alt="{{ kingsRide.guest.photo.description }}" class="img-fluid">
+    <p>
+        <img src="{{ asset(kingsRide.guest.photo.webPath) }}" alt="{{ kingsRide.guest.photo.description }}" class="img-fluid">
+    </p>
     {% endif %}
 </div>
 {% endblock %}
