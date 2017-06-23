@@ -29,6 +29,7 @@ class Guest extends BaseEntity
      *
      * @ORM\Column(name="name", type="string", length=255)
      * @Assert\NotBlank()
+     * @Gedmo\Translatable()
      */
     private $name;
 
