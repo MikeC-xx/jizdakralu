@@ -10,7 +10,6 @@
 {% set hasFooter = true %}
 {% endif %}
 {% set showSearch = 'localhost' in url('homepage') or 'staging' in url('homepage') %}
-{% set showLang = showSearch %}
 
 {% block body %}
 <header class="header">
@@ -57,7 +56,6 @@
                         <a class="nav-link" href="{{ path('organizer') }}">{{ 'Organizer'|trans }}</a>
                     </li>
                 </ul>
-                {% if showLang %}
                 <ul class="navbar-nav ml-md-auto ml-lg-0">
                     <li class="nav-item">
                         {% set routeName = app.request.get('_route') is empty ? 'homepage' : app.request.get('_route') %}
@@ -67,7 +65,6 @@
                         </a>
                     </li>
                 </ul>
-                {% endif %}
                 {% if showSearch %}
                 <form class="form-inline ml-lg-auto ml-xl-0" action="{{ path('search') }}" method="GET">
                     <div class="input-group">

@@ -78,7 +78,6 @@ class DefaultController extends Controller
 
     /**
      * @Route("/search", name="search")
-     * @Method("GET")
      */
     public function searchAction(Request $request)
     {
