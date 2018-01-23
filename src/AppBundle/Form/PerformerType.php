@@ -17,7 +17,8 @@ class PerformerType extends AbstractType
         $builder
             ->add('name')
             ->add('photo', DocumentType::class)
-            ->add('description', null, ['attr' => ['class' => 'wysiwyg']]);
+            ->add('description', null, ['attr' => ['class' => 'wysiwyg']]),
+            ->add('sort_order');
     }
 
     /**
