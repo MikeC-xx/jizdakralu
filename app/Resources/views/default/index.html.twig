@@ -13,7 +13,12 @@
             {{ 'The Kings\' Ride'|transchoice(1) }}
         </p>
         <h2 class="display-4 font-forte mb-5">
-            {{ kingsRide.startDate|localizeddate('none', 'none', app.request.locale, null, 'd.' ) }}–{{ kingsRide.endDate|localizeddate('none', 'none', app.request.locale, null, 'd. MMMM YYYY' ) }}<br>
+            {% if kingsRide.startDate|date('m') == kingsRide.endDate|date('m') %}
+                {{ kingsRide.startDate|localizeddate('none', 'none', app.request.locale, null, 'd.' ) }}–{{ kingsRide.endDate|localizeddate('none', 'none', app.request.locale, null, 'd. MMMM YYYY' ) }}
+            {% else %}
+                {{ kingsRide.startDate|localizeddate('none', 'none', app.request.locale, null, 'd. MMMM' ) }}<br>a {{ kingsRide.endDate|localizeddate('none', 'none', app.request.locale, null, 'd. MMMM YYYY' ) }}
+            {% endif %}
+            <br>
             {{ 'Doloplazy (near Olomouc)'|trans }}
         </h2>
         {% if kingsRide.king %}
