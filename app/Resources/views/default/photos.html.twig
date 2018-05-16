@@ -1,0 +1,31 @@
+{% extends 'default.html.twig' %}
+
+{% set hasBreadcrumb = true %}
+
+{% set metaDescription = 'Photos of the Kings\' Ride in Doloplazy.'|trans %}
+
+{% block pageTitle %}{{ 'Photos of the Kings\' Ride'|transchoice(1) }}{% endblock %}
+
+{% block title %}{{ 'Photos of the Kings\' Ride'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+<span class="breadcrumb-item active">{{ 'Photos of the Kings\' Ride'|trans }}</span>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">{{ 'Photos of the Kings\' Ride'|trans }}</h2>
+    <div class="row">
+        {% for album in albums %}
+        <div class="col col-sm-2 col-md-3 col-lg-4 mb-5">
+            <a href="{{ album.url }}" class="card" target="_blank">
+                <img class="card-img-top img-fluid" src="{{ album.cover }}" alt="{{ 'The Kings\' Ride'|transchoice(1) }} {{ album.year }}">
+                <div class="card-block">
+                    <h4 class="card-title">{{ 'The Kings\' Ride'|transchoice(1) }} {{ album.year }}</h4>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

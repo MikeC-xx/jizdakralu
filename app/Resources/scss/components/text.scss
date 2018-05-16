@@ -1,0 +1,19 @@
+.text-light,
+.text-light a {
+    color: $gray-light;
+}
+
+.text-light a:hover,
+.text-light a:focus {
+    color: lighten($gray-light, 10%);
+}
+
+.text-lighter,
+.text-lighter a {
+    color: $gray-lighter;
+}
+
+.text-lighter a:hover,
+.text-lighter a:focus {
+    color: lighten($gray-lighter, 10%);
+}

@@ -19,13 +19,3 @@ body {
 .footer {
     background-color: $gray-dark;
 }
-
-.footer,
-.footer a {
-    color: $gray-light;
-}
-
-.footer a:hover,
-.footer a:focus {
-    color: lighten($gray-light, 10%);
-}

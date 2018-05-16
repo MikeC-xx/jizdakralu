@@ -1,0 +1,29 @@
+{% extends 'default.html.twig' %}
+
+{% set hasBreadcrumb = true %}
+
+{% set metaDescription = 'Videos of the Kings\' Ride in Doloplazy.'|trans %}
+
+{% block pageTitle %}{{ 'Videos of the Kings\' Ride'|transchoice(1) }}{% endblock %}
+
+{% block title %}{{ 'Videos of the Kings\' Ride'|trans }}{% endblock %}
+
+{% block breadcrumb %}
+<span class="breadcrumb-item active">{{ 'Videos of the Kings\' Ride'|trans }}</span>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">{{ 'Videos of the Kings\' Ride'|trans }}</h2>
+    <div class="row">
+        {% for video in videos %}
+        <div class="col-12 col-md-6 mb-4">
+            <div class="embed-responsive embed-responsive-16by9 mb-2">
+                <iframe class="embed-responsive-item" src="{{ video.url }}" allowfullscreen></iframe>
+            </div>
+            <h3>{{ 'The Kings\' Ride'|transchoice(1) }} {{ video.year }}</h3>
+    </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

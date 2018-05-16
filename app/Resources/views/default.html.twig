@@ -6,9 +6,6 @@
 {% if mainClass is not defined %}
 {% set mainClass = 'py-3' %}
 {% endif %}
-{% if hasFooter is not defined %}
-{% set hasFooter = true %}
-{% endif %}
 {% set showSearch = 'localhost' in url('homepage') or 'staging' in url('homepage') %}
 
 {% block body %}
@@ -90,14 +87,13 @@
     <h1 class="sr-only">{% block pageTitle %}{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ currentYear }}{% endblock %}</h1>
     {% block content %}{% endblock %}
 </main>
-{% if hasFooter %}
-<footer class="footer py-3">
+<footer class="footer bg-inverse py-3">
     <div class="container d-flex flex-column align-items-center align-items-md-start">
-        <div class="d-flex justify-content-center flex-wrap mb-4">
-            <a href="https://get.google.com/albumarchive/104108687496704590123" target="_blank" class="mr-5 mb-2">
+        <div class="d-flex justify-content-center flex-wrap mb-4 text-lighter">
+            <a href="{{ path('photos') }}{#https://get.google.com/albumarchive/104108687496704590123#}" class="mr-5 mb-2">
                 <i class="fa fa-camera mr-2" aria-hidden="true"></i>{{ 'Photos'|trans }}
             </a>
-            <a href="https://www.youtube.com/channel/UCLA2-D8BF85ZDPhv40ompXw" target="_blank" class="mr-5 mb-2">
+            <a href="{{ path('videos') }}{#https://www.youtube.com/channel/UCLA2-D8BF85ZDPhv40ompXw#}" class="mr-5 mb-2">
                 <i class="fa fa-youtube-play mr-2" aria-hidden="true"></i>{{ 'Videos'|trans }}
             </a>
             <a href="{{ path('downloads' )}}" class="mr-5 mb-2">
@@ -107,10 +103,9 @@
                 Olešnica Doloplazy
             </a>
         </div>
-        <div class="text-xs">
+        <div class="text-xs text-light">
             {{ 'Created by'|trans }} <a href="https://michael.cenker.cz" target="_blank">Michael Cenker</a> • <a href="{{ path('admin_homepage') }}">Admin</a>
         </div>
     </div>
 </footer>
-{% endif %}
 {% endblock %}

@@ -1,38 +1,60 @@
 {% extends 'default.html.twig' %}
 
 {% set navbarClass = 'navbar-border-bottom' %}
-{% set mainClass = 'bg-primary bg-horseman' %}
-{% set hasFooter = false %}
+{% set mainClass = 'd-flex flex-column bg-inverse' %}
 
 {% block title %}{{ 'The Kings\' Ride'|transchoice(1) }} {{ kingsRide.year }} — {{ 'Doloplazy (near Olomouc)'|trans }}{% endblock %}
 {% set metaDescription = 'Tradiční národopisná slavnost Jízda králů v Doloplazích je jedinou hanáckou jízdou králů v České republice.' %}
 
 {% block content %}
-    <div class="container py-3 mb-5 text-center text-white">
-        <p class="display-3 font-forte mb-5">
-            {{ 'The Kings\' Ride'|transchoice(1) }}
-        </p>
-        <h2 class="display-4 font-forte mb-5">
-            {% if kingsRide.startDate|date('m') == kingsRide.endDate|date('m') %}
-                {{ kingsRide.startDate|localizeddate('none', 'none', app.request.locale, null, 'd.' ) }}–{{ kingsRide.endDate|localizeddate('none', 'none', app.request.locale, null, 'd. MMMM YYYY' ) }}
-            {% else %}
-                {{ kingsRide.startDate|localizeddate('none', 'none', app.request.locale, null, 'd. MMMM' ) }}<br>a {{ kingsRide.endDate|localizeddate('none', 'none', app.request.locale, null, 'd. MMMM YYYY' ) }}
+    <section class="flex-auto bg-primary bg-horseman">
+        <div class="container py-3 text-center text-white">
+            <p class="display-3 font-forte mb-5">
+                {{ 'The Kings\' Ride'|transchoice(1) }}
+            </p>
+            <h2 class="display-4 font-forte mb-5">
+                {% if kingsRide.startDate|date('m') == kingsRide.endDate|date('m') %}
+                    {{ kingsRide.startDate|localizeddate('none', 'none', app.request.locale, null, 'd.' ) }}–{{ kingsRide.endDate|localizeddate('none', 'none', app.request.locale, null, 'd. MMMM YYYY' ) }}
+                {% else %}
+                    {{ kingsRide.startDate|localizeddate('none', 'none', app.request.locale, null, 'd. MMMM' ) }}<br>a {{ kingsRide.endDate|localizeddate('none', 'none', app.request.locale, null, 'd. MMMM YYYY' ) }}
+                {% endif %}
+                <br>
+                {{ 'Doloplazy (near Olomouc)'|trans }}
+            </h2>
+            {% if kingsRide.king %}
+            <p class="display-4 font-forte">{{ 'King'|transchoice(1) }}: {{ kingsRide.king.fullName }}</p>
             {% endif %}
-            <br>
-            {{ 'Doloplazy (near Olomouc)'|trans }}
-        </h2>
-        {% if kingsRide.king %}
-        <p class="display-4 font-forte">{{ 'King'|transchoice(1) }}: {{ kingsRide.king.fullName }}</p>
-        {% endif %}
-        <div class="lead">
-            {{ kingsRide.introduction|raw }}
+            <div class="lead">
+                {{ kingsRide.introduction|raw }}
+            </div>
+            <p class="logos d-flex flex-wrap justify-content-center align-items-center">
+                {% for sponsor in kingsRide.sponsors if sponsor.sponsorKind.id == 1 %}
+                {{ source('@documents/' ~ sponsor.logo.name) }}
+                {% endfor %}
+            </p>
         </div>
-        <p class="logos d-flex flex-wrap justify-content-center align-items-center">
-            {% for sponsor in kingsRide.sponsors if sponsor.sponsorKind.id == 1 %}
-            {{ source('@documents/' ~ sponsor.logo.name) }}
-            {% endfor %}
-        </p>
-    </div>
+    </section>
+    {% if kingsRide.year == activeYear %}
+    <section class="pt-5 mb-3 bg-inverse text-white">
+        <div class="container text-center">
+            <h2 class="mb-4">{{ 'Video of the recent Kings\' Ride'|trans }} 2017</h2>
+            <div class="embed-responsive embed-responsive-16by9 mb-4">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/fSLkip-7Kw0" allowfullscreen></iframe>
+            </div>
+            <a href="{{ path('videos') }}" class="btn btn-lg btn-outline-white">{{ 'More videos'|trans }}<i class="fa fa-chevron-right ml-2" aria-hidden="true"></i></a>
+        </div>
+    </section>
+    <section class="pt-5 bg-inverse text-white">
+        <div class="container text-center mb-5">
+            <h2 class="mb-4">{{ 'Photos of the recent Kings\' Ride'|trans }} 2017</h2>
+            <a href="https://goo.gl/photos/B86Pdt2f8nsY4Syp6" target="_blank" class="d-block mb-4">
+                <img class="card-img-top img-fluid" src="https://lh3.googleusercontent.com/ebpPfC5m6oN7K6o94l-qzwe25jCKSA9E8bEhv0rGQuQvnc21XjbWONzckrFnx_wy-6ic_WZLhxYtsgnCRmIJXnRq6TKYeR-QxLZWBiuDUpLlaFktM0s9LGaPYXAC-V7OMpd4uUv8Iw2P25yxsgd7yEzfcgnLprgW5RzZOrK4vvyFud_C4AWIHGhKLBQKp3gWfdi-z5b-ztgIFUmHGH4XTXnxihuFFHjwSG-GmdbATyCLSUCLmdhZ0IhT_H0B9W2DH1gmbZAkrwvh8eiabFkiuNAYVn2OLTP5bFBoaLcnj2BIv6CrEkBFm3mJD8UbjdyxsBGJILAfYxLQBZLxFdIoo5FE2C5ajWZvbacXggtJbp4ENcn4x8b-gndttSJxObUq6C1QeDoHaORAJt2OZGx0XkTvqO0tc_X2uU7ov-k5XHqzLW85oaU1hSwctvM6eu_d6LiNnkJ1P2PC4Q4Z9IfWGZc5NeqDlpcHAGmP-JDmVrKaNdjIUX6aVInu_qyNZC85RIgbOIHezDVpncEYvZr6DZpJ0Yrv-Jmdz54L1Up3FAMuUlq7NLYhz8-OPLpfpVhGBdN7VU5kPZ7YvUOh--Vgwa-5aJ85r88quHnWW7OUYMqX7bdFlhH0qB1IqJctcz7HV9puy9osrWwxhjBshLWBik9hXm9dXGih=w1920-h1275-no" alt="{{ 'The Kings\' Ride'|transchoice(1) }} 2017">
+            </a>
+            <a href="{{ path('photos') }}" class="btn btn-lg btn-outline-white">{{ 'More photos'|trans }}<i class="fa fa-chevron-right ml-2" aria-hidden="true"></i></a>
+        </div>
+        <hr>
+    </section>
+    {% endif %}
 {% endblock %}
 
 {% block stylesheets %}
