@@ -1,0 +1,25 @@
+.hover-overlay-container {
+    position: relative;
+}
+
+.hover-overlay-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity .3s;
+}
+
+.hover-overlay-container > .hover-overlay-content {
+    opacity: 0;
+}
+
+.hover-overlay-container:hover > .hover-overlay-content {
+    opacity: 1.0;
+}

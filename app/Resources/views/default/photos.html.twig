@@ -19,7 +19,12 @@
         {% for album in albums %}
         <div class="col col-sm-2 col-md-3 col-lg-4 mb-5">
             <a href="{{ album.url }}" class="card" target="_blank">
-                <img class="card-img-top img-fluid" src="{{ album.cover }}" alt="{{ 'The Kings\' Ride'|transchoice(1) }} {{ album.year }}">
+                <div class="hover-overlay-container">
+                    <img class="card-img-top img-fluid" src="{{ album.cover }}" alt="{{ 'The Kings\' Ride'|transchoice(1) }} {{ album.year }}">
+                    <div class="card-img-top hover-overlay-content">
+                        <span class="h5">{{ 'Click to open album'|trans }}<i class="fa fa-camera ml-2" aria-hidden="true"></i></span>
+                    </div>
+                </div>
                 <div class="card-block">
                     <h4 class="card-title">{{ 'The Kings\' Ride'|transchoice(1) }} {{ album.year }}</h4>
                 </div>
