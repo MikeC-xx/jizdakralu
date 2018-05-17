@@ -144,14 +144,14 @@ class DefaultController extends Controller
                 'url' => 'https://goo.gl/photos/EdRGMs8xZPpdfGBd6'
             ),
             array(
-                'cover' => 'http://img12.rajce.idnes.cz/d1202/11/11594/11594781_64d12790391e240f02fe8567c96f6f9e/images/DSC_7208.jpg?ver=0',
+                'cover' => 'https://img12.rajce.idnes.cz/d1202/11/11594/11594781_64d12790391e240f02fe8567c96f6f9e/images/DSC_7208.jpg?ver=0',
                 'year' => 2015,
-                'url' => 'http://dracon.rajce.idnes.cz/Jizda_kralu_Doloplazy_2015/'
+                'url' => 'https://dracon.rajce.idnes.cz/Jizda_kralu_Doloplazy_2015/'
             ),
             array(
-                'cover' => 'http://img21.rajce.idnes.cz/d2101/13/13007/13007532_f84313d6125abf9c2e7aa1175c28e5a9/images/DSC_0991.jpg?ver=2',
+                'cover' => 'https://img21.rajce.idnes.cz/d2101/13/13007/13007532_f84313d6125abf9c2e7aa1175c28e5a9/images/DSC_0991.jpg?ver=2',
                 'year' => 2016,
-                'url' => 'http://dracon.rajce.idnes.cz/Jizda_kralu_Doloplazy_2016/'
+                'url' => 'https://dracon.rajce.idnes.cz/Jizda_kralu_Doloplazy_2016/'
             ),
             array(
                 'cover' => 'https://lh3.googleusercontent.com/tLmqDEffy2EE-i5wJcbO3wYUxV2EmkmwXRMmcqQ5a-Y--TI2R72xC4NFIoNQHMi6qyS-2m30fFey2H9Mm7GGB-n7GmHDs7blWFTsYwVQOhwDUCwcpP5LU_MewwZx0BZpMDhIl2_0wBsTM1jrU8wgKaAJiTFwNlPYgWFRLFntqchpPF95YdYi7fKVfE1H_oHzyBWu9Ms_-ItkY_hXGh3Y7SARJe4WerYJbEgYr82XYSMmZoukLAFcthbISQojCYreqMwmGCp5oxmNEKk__jxluSrcdDbYVxAMDFkV0R1TKhMAp7bpCdyM3JKL8IOx_Ncv0m8Ffa-j_-G9ste81SxqAaYAQ0FWgJ-GcP-UivohQXFwlLUIWZ0ncC8hlLGk8mUik-vz5LFh41WHRjfcUR1ubyZJSsQY25m6HhpXTPuiTBWIzoP8xGuckqn1rAp0ahIERxJrv4EpYFgMuRmG-J53eKbNkjjgsXPVLnNviSBKSQZu-uq95LDe6133yPIlGw8HavB9DsjobdsLje45qQkfy35B9VCJxhi_XrRhHTtAAO1eDlw0m2U9pwu5Z5-P9wtqsVwIMZTJoB_kJzWObCdNLa0-bKAihX4Kje9kl6eGMrWklKLjdcUZV2iGTUE_UR2EJhoew8JZGkDzUQftKiwtrYUrFOxzxsgq=w478-h317-no',
