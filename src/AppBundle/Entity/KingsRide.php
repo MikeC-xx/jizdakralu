@@ -79,6 +79,7 @@ class KingsRide extends BaseEntity
 
     /**
      * @ORM\ManyToMany(targetEntity="Sponsor")
+     * @ORM\OrderBy({"name"="ASC"})
      */
     private $sponsors;
 
