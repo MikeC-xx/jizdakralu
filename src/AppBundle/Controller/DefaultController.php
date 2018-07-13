@@ -157,6 +157,11 @@ class DefaultController extends Controller
                 'cover' => 'https://lh3.googleusercontent.com/tLmqDEffy2EE-i5wJcbO3wYUxV2EmkmwXRMmcqQ5a-Y--TI2R72xC4NFIoNQHMi6qyS-2m30fFey2H9Mm7GGB-n7GmHDs7blWFTsYwVQOhwDUCwcpP5LU_MewwZx0BZpMDhIl2_0wBsTM1jrU8wgKaAJiTFwNlPYgWFRLFntqchpPF95YdYi7fKVfE1H_oHzyBWu9Ms_-ItkY_hXGh3Y7SARJe4WerYJbEgYr82XYSMmZoukLAFcthbISQojCYreqMwmGCp5oxmNEKk__jxluSrcdDbYVxAMDFkV0R1TKhMAp7bpCdyM3JKL8IOx_Ncv0m8Ffa-j_-G9ste81SxqAaYAQ0FWgJ-GcP-UivohQXFwlLUIWZ0ncC8hlLGk8mUik-vz5LFh41WHRjfcUR1ubyZJSsQY25m6HhpXTPuiTBWIzoP8xGuckqn1rAp0ahIERxJrv4EpYFgMuRmG-J53eKbNkjjgsXPVLnNviSBKSQZu-uq95LDe6133yPIlGw8HavB9DsjobdsLje45qQkfy35B9VCJxhi_XrRhHTtAAO1eDlw0m2U9pwu5Z5-P9wtqsVwIMZTJoB_kJzWObCdNLa0-bKAihX4Kje9kl6eGMrWklKLjdcUZV2iGTUE_UR2EJhoew8JZGkDzUQftKiwtrYUrFOxzxsgq=w478-h317-no',
                 'year' => 2017,
                 'url' => 'https://goo.gl/photos/B86Pdt2f8nsY4Syp6'
+            ),
+            array(
+                'cover' => 'https://lh3.googleusercontent.com/qf7zq4TjeNniGXUpkCCRhz7MxXJ5en22Y4mvfAxG0ad394TPrAyXHYCWY1OH84Pf1kxFEjpH_H7E_RXnxMnJCtpYUiGdknCXgOhOTFYVAn2YiYkAz3G12BRVgwVdyTqw97GaS8uYzEVui8BHDUjQobdW9PCNgBb-SMZjHu1R-UzGjBINteUgBhS43T_ehEdUi-MsJGr71110Bof-babSi57O0SdIvR_prdwFq1zrW7qpKMX1iO7Ci6ngRR0HkKmt33CYwyXxLuk-HTJbDU8hcY7HyAbyq4kzzYTj-g4RzUi0xBjsRxuP_PSS_RN6vwFhjzbYkIoPMthCD4cCSysSQbSWyB_pTlduVmVjGOZl-g2n0O8i-aFYQc_GMNbCegADCSbm67iUXeihC-Jnp6MFguLBc2sHG37Z9uI8Yo7EnnyjTYRDehLZU8FOmvvOmGBHmObs_zxR5A2moeF2DjwMb5lNPvE4nwMYLZfuliwCzIlKcQzYgz2t_d44gWN9FEmrgifEmQtoxFRo896ZU0os3fLuz7I3OR94KgDIM4rZV12ysPw_uUQXjzDOLgUc-sLVKsoWX-aii9fdq8mFPXavLnIbIOZW6kD6OtwU9KzTl92NT0UwenSvL59FY8oDfDNMEW6wiLJJEpHMVSq_rXkwYjIf-TJKaL2F',
+                'year' => 2018,
+                'url' => 'https://photos.app.goo.gl/YyVZyfgkswDtTVHy5'
             )
         );
 
