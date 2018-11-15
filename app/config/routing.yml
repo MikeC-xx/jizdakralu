@@ -1,7 +1,7 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
-    defaults: { year: 2018 }
+    defaults: { year: 2019 }
 
 admin:
     resource: "@AdminBundle/Controller/"
