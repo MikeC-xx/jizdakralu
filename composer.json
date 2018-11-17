@@ -32,7 +32,7 @@
         "jms/translation-bundle": "dev-master",
         "twig/extensions": "^1.4",
         "stof/doctrine-extensions-bundle": "^1.2",
-        "adminbundle": "^1.0"
+        "adminbundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
