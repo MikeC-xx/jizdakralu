@@ -16,6 +16,8 @@ class KingsRideType extends AbstractType
     {
         $builder
             ->add('year')
+            ->add('startDate')
+            ->add('endDate')
             ->add('introduction', TextareaType::class, ['attr' => ['class' => 'wysiwyg']])
             ->add('saturdayProgram', null, ['attr' => ['class' => 'wysiwyg']])
             ->add('sundayProgram', null, ['attr' => ['class' => 'wysiwyg']])

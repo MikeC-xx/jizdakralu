@@ -33,10 +33,25 @@ class KingsRide extends BaseEntity
     private $year;
 
     /**
+     * @var DateTime
+     *
+     * @ORM\Column(name="start_date", type="date", nullable=true)
+     * @Assert\NotBlank()
+     */
+    private $startDate;
+
+    /**
+     * @var DateTime
+     *
+     * @ORM\Column(name="end_date", type="date", nullable=true)
+     * @Assert\NotBlank()
+     */
+    private $endDate;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="introduction", type="string", length=255)
-     * @Assert\NotBlank()
+     * @ORM\Column(name="introduction", type="string", length=255, nullable=true)
      * @Gedmo\Translatable()
      */
     private $introduction;
@@ -44,7 +59,7 @@ class KingsRide extends BaseEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="saturday_program", type="text")
+     * @ORM\Column(name="saturday_program", type="text", nullable=true)
      * @Gedmo\Translatable()
      */
     private $saturdayProgram;
@@ -52,7 +67,7 @@ class KingsRide extends BaseEntity
     /**
      * @var string
      *
-     * @ORM\Column(name="sunday_program", type="text")
+     * @ORM\Column(name="sunday_program", type="text", nullable=true)
      * @Gedmo\Translatable()
      */
     private $sundayProgram;
@@ -118,6 +133,53 @@ class KingsRide extends BaseEntity
     }
 
     /**
+     * Set startDate
+     *
+     * @param DateTime $startDate
+     *
+     * @return KingsRide
+     */
+    public function setStartDate($startDate)
+    {
+        $this->startDate = $startDate;
+
+        return $this;
+    }
+
+    /**
+     * Get startDate
+     *
+     * @return DateTime
+     */
+    public function getStartDate()
+    {
+        return $this->startDate;
+    }
+    /**
+     * Set endDate
+     *
+     * @param DateTime $endDate
+     *
+     * @return KingsRide
+     */
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
+
+        return $this;
+    }
+
+    /**
+     * Get endDate
+     *
+     * @return DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    /**
      * Set introduction
      *
      * @param string $introduction
@@ -141,15 +203,6 @@ class KingsRide extends BaseEntity
         return $this->introduction;
     }
 
-    public function getStartDate()
-    {
-        return $this->getEndDate()->modify('-1 day');
-    }
-
-    public function getEndDate()
-    {
-        return new \DateTime('first sunday of july ' . $this->getYear());
-    }
     /**
      * Constructor
      */
