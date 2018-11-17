@@ -2,7 +2,7 @@
 
 {% set hasBreadcrumb = true %}
 
-{% block title %}{{ 'Page was not found'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|trans }}{% endblock %}
+{% block title %}{{ 'Page was not found'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|transchoice(0) }}{% endblock %}
 
 {% block breadcrumb %}
 <span class="breadcrumb-item active">{{ 'Page was not found'|trans }}</span>

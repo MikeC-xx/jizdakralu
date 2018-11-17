@@ -2,7 +2,7 @@
 
 {% set hasBreadcrumb = true %}
 
-{% block title %}{{ 'An error occurred'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|trans }}{% endblock %}
+{% block title %}{{ 'An error occurred'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|transchoice(0) }}{% endblock %}
 
 {% block breadcrumb %}
 <span class="breadcrumb-item active">{{ 'An error occurred'|trans }}</span>

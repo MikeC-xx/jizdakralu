@@ -2,7 +2,7 @@
 
 {% set hasBreadcrumb = true %}
 
-{% block title %}{{ 'Access denied'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|trans }}{% endblock %}
+{% block title %}{{ 'Access denied'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|transchoice(0) }}{% endblock %}
 
 {% block breadcrumb %}
 <span class="breadcrumb-item active">{{ 'Access denied'|trans }}</span>
