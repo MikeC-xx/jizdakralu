@@ -35,7 +35,7 @@ class KingsRide extends BaseEntity
     /**
      * @var DateTime
      *
-     * @ORM\Column(name="start_date", type="date", nullable=true)
+     * @ORM\Column(name="start_date", type="date", nullable=false)
      * @Assert\NotBlank()
      */
     private $startDate;
@@ -43,7 +43,7 @@ class KingsRide extends BaseEntity
     /**
      * @var DateTime
      *
-     * @ORM\Column(name="end_date", type="date", nullable=true)
+     * @ORM\Column(name="end_date", type="date", nullable=false)
      * @Assert\NotBlank()
      */
     private $endDate;
@@ -388,5 +388,25 @@ class KingsRide extends BaseEntity
     public function getPerformers()
     {
         return $this->performers;
+    }
+
+    /**
+     * Get saturdayDate
+     *
+     * @return DateTime
+     */
+    public function getSaturdayDate()
+    {
+        return (new \DateTime($this->getSundayDate()->format('Y-m-d')))->modify('-1 day');
+    }
+
+    /**
+     * Get sundayDate
+     *
+     * @return DateTime
+     */
+    public function getSundayDate()
+    {
+        return $this->endDate;
     }
 }
