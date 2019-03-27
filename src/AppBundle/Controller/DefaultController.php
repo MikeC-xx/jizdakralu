@@ -188,7 +188,7 @@ class DefaultController extends Controller
             ),
             array(
                 'year' => 2018,
-                'url' => 'https://www.youtube.com/embed/fSLkip-7Kw0'
+                'url' => 'https://www.youtube.com/embed/VUYW2FMuyXQ'
             )
         );
 
