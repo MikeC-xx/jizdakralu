@@ -144,7 +144,7 @@ class DefaultController extends Controller
                 'url' => 'https://goo.gl/photos/EdRGMs8xZPpdfGBd6'
             ),
             array(
-                'cover' => 'https://img12.rajce.idnes.cz/d1202/11/11594/11594781_64d12790391e240f02fe8567c96f6f9e/images/DSC_7208.jpg?ver=0',
+                'cover' => 'https://img19.rajce.idnes.cz/d1903/11/11594/11594781_64d12790391e240f02fe8567c96f6f9e/images/DSC_7332.jpg?ver=0',
                 'year' => 2015,
                 'url' => 'https://dracon.rajce.idnes.cz/Jizda_kralu_Doloplazy_2015/'
             ),
