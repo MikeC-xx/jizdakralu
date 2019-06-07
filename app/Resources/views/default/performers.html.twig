@@ -4,7 +4,7 @@
 
 {% set metaDescription = 'Účinkující soubory Jízdy králů v Doloplazích ' ~ kingsRide.year ~ '.' %}
 
-{% block title %}{{ 'Performers'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|trans }} {{ kingsRide.year }}{% endblock %}
+{% block title %}{{ 'Performers'|trans }} — {{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ kingsRide.year }}{% endblock %}
 
 {% block breadcrumb %}
 <span class="breadcrumb-item active">{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ kingsRide.year }}</span>
