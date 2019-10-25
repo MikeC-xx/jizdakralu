@@ -194,6 +194,10 @@ class DefaultController extends Controller
             array(
                 'year' => 2018,
                 'url' => 'https://www.youtube.com/embed/VUYW2FMuyXQ'
+            ),
+            array(
+                'year' => 2019,
+                'url' => 'https://www.youtube.com/watch?v=t6PMML6Dc14'
             )
         );
 
