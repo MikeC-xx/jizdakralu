@@ -7,6 +7,7 @@
 {% set mainClass = 'py-3' %}
 {% endif %}
 {% set showSearch = 'localhost' in url('homepage') or 'staging' in url('homepage') %}
+{% set showSearch = false %}
 
 {% block body %}
 <header class="header">
@@ -49,8 +50,17 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav flex-wrap">
+                    <li class="nav-item{{ app.request.get('_route') == 'photos' ? ' active' }}">
+                        <a class="nav-link pl-0" href="{{ path('photos') }}">{{ 'Photos'|trans }}</a>
+                    </li>
+                    <li class="nav-item{{ app.request.get('_route') == 'videos' ? ' active' }}">
+                        <a class="nav-link" href="{{ path('videos') }}">{{ 'Videos'|trans }}</a>
+                    </li>
+                    <li class="nav-item{{ app.request.get('_route') == 'downloads' ? ' active' }}">
+                        <a class="nav-link" href="{{ path('downloads' )}}">{{ 'Downloads'|trans }}</a>
+                    </li>
                     <li class="nav-item{{ app.request.get('_route') == 'history' ? ' active' }}">
-                        <a class="nav-link pl-0" href="{{ path('history') }}">{{ 'History'|trans }}</a>
+                        <a class="nav-link" href="{{ path('history') }}">{{ 'History'|trans }}</a>
                     </li>
                     <li class="nav-item{{ app.request.get('_route') == 'organizer' ? ' active' }}">
                         <a class="nav-link" href="{{ path('organizer') }}">{{ 'Organizer'|trans }}</a>
@@ -60,7 +70,7 @@
                     <li class="nav-item">
                         {% set routeName = app.request.get('_route') is empty ? 'homepage' : app.request.get('_route') %}
                         {% set routeParams = app.request.get('_route_params') ? app.request.get('_route_params')|merge({ '_locale': app.request.get('_locale') == 'en' ? 'cs' : 'en' }) : {} %}
-                        <a class="nav-link pr-md-3 pr-lg-0 pr-xl-3" href="{{ path(routeName, routeParams) }}">
+                        <a class="nav-link pr-md-0 pr-lg-0 pr-xl-3" href="{{ path(routeName, routeParams) }}">
                             <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;{{ app.request.get('_locale') == 'en' ? 'Česky' : 'English' }}
                         </a>
                     </li>
@@ -90,21 +100,10 @@
     <h1 class="sr-only">{% block pageTitle %}{{ 'The Kings\' Ride in Doloplazy'|transchoice(1) }} {{ currentYear }}{% endblock %}</h1>
     {% block content %}{% endblock %}
 </main>
-<footer class="footer bg-inverse py-3">
-    <div class="container d-flex flex-column align-items-center align-items-md-start">
-        <div class="d-flex justify-content-center flex-wrap mb-4 text-lighter">
-            <a href="{{ path('photos') }}{#https://get.google.com/albumarchive/104108687496704590123#}" class="mr-5 mb-2">
-                <i class="fa fa-camera mr-2" aria-hidden="true"></i>{{ 'Photos'|trans }}
-            </a>
-            <a href="{{ path('videos') }}{#https://www.youtube.com/channel/UCLA2-D8BF85ZDPhv40ompXw#}" class="mr-5 mb-2">
-                <i class="fa fa-youtube-play mr-2" aria-hidden="true"></i>{{ 'Videos'|trans }}
-            </a>
-            <a href="{{ path('downloads' )}}" class="mr-5 mb-2">
-                <i class="fa fa-download mr-2" aria-hidden="true"></i>{{ 'Downloads'|trans }}
-            </a>
-            <a href="https://olesnica.cz" target="_blank" class="mb-2">
-                Olešnica Doloplazy
-            </a>
+<footer class="footer{{ app.request.get('_route') == 'homepage' ? ' footer-border-top' : '' }} bg-inverse py-3">
+    <div class="container">
+        <div class="text-sm text-light mb-3">
+            Hanácký národopisný soubor OLEŠNICA DOLOPLAZY, z. s. je zapsán v obchodním rejstříku vedeném u Krajského soudu v Ostravě, spisová značka L 7494/KSOS, IČ: 28554043
         </div>
         <div class="text-xs text-light">
             {{ 'Created by'|trans }} <a href="https://michael.cenker.cz" target="_blank">Michael Cenker</a> • <a href="{{ path('admin_homepage') }}">Admin</a>
