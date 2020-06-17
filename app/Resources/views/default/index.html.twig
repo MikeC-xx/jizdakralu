@@ -7,12 +7,12 @@
 {% set metaDescription = 'Tradiční národopisná slavnost Jízda králů v Doloplazích je jedinou hanáckou jízdou králů v České republice.' %}
 
 {% block content %}
-    <section class="flex-auto py-5 bg-primary bg-horseman" style="min-height:60vh">
+    <section class="flex-auto pt-4 pt-sm-5 pb-5 bg-primary bg-horseman" style="min-height:60vh">
         <div class="container text-center text-white">
-            <p class="display-3 font-forte mb-5">
+            <p class="display-3 font-forte mb-3 mb-sm-5">
                 {{ 'The Kings\' Ride'|transchoice(1) }}
             </p>
-            <h2 class="display-4 font-forte mb-5">
+            <h2 class="display-4 font-forte mb-3 mb-sm-5">
                 {% if kingsRide.startDate|date('m') == kingsRide.endDate|date('m') %}
                     {{ kingsRide.startDate|localizeddate('none', 'none', app.request.locale, null, 'd.' ) }}–{{ kingsRide.endDate|localizeddate('none', 'none', app.request.locale, null, 'd. MMMM YYYY' ) }}
                 {% else %}
