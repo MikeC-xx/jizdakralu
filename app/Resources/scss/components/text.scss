@@ -17,3 +17,13 @@
 .text-lighter a:focus {
     color: lighten($gray-lighter, 10%);
 }
+
+@include media-breakpoint-down(sm) {
+    .display-3 {
+        font-size: 3rem;
+    }
+
+    .display-4 {
+        font-size: 2rem;
+    }
+}
