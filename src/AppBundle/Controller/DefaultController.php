@@ -167,6 +167,11 @@ class DefaultController extends Controller
                 'cover' => 'https://lh3.googleusercontent.com/1NMXkHIQu0d_El14SGbIHhHsqScm7L5yjD5MPBD9wFCgk5IwU8qHK_Rrl6T0ls0n7SRuJ7w_qXkr3xyxwr2E8oonkKZCSudR4ri-k4RtPXxq3sha88GQJGfFk5f5MwK6KtdDaI5k1XkrceNkMcn5qPbnzHvI5KmJllnzdmsAC1imSVh5SQaVKvQ8PJXnM-idwmkrmemOehsLLNF-1SxKoTVpuKRCMBqyZpgmvPKpfC4fR1tr-UBUm47DUbwnvR7GvR-zsn-QpNXvZqZWer1AsX1znXUmaDmbIsJdb0zA1gvrz4Wqdc1DszulBmzyiKTOX4U8gZCbnWu5JcisUP4rRsI4x5MrUPD2MgZZOfel2tXHW2yfIGU10I_2Mwhq97jnPbFNDqzHcLsamhyNUrPE9qOjEuC9YvqVx2VRz7L1tar1gepvZ9lvAPIM4rLD23W0HhCiYMH9F_mkh15bRvjS1QrS8cROabr7zbsxhD2kL0rITWqWiTjROxj7lhqOBViR_siI5Y8c36f6UbV4qM_rRMMmA0U9AuKEaPafOHNPc2TgWEa476jItDiSfPF7Ni1HribD0juapCm8GNVjeZhih-4fFzO8eo26m19jfzqMRVhGUdt58IW9FmXH2Ji1EdEN4E25nWg0SLzImizwblLXxoybqe7cjQTDmH3_okNh77SHf5ZxsFIARWhr4fgvtEILYmNR0ymOoQ1crz-zdXGMYdd-=w1920-h1275-no',
                 'year' => 2019,
                 'url' => 'https://photos.app.goo.gl/ue2PAaDrzbgGhCnR9'
+            ),
+            array(
+                'cover' => 'https://lh3.googleusercontent.com/pw/ACtC-3cV3_d1HRqW4ULzecE36KUShsuUCo_Z516zEZj_sJ-RSlPYHRnGX2-fmI35ET7Wem2u3sNVI77haQxL_Kl3JJ0h3jSrGZJ1cYsit3XyXzCR6B4t8XZaqXnjWW0DH68YzVF8m_3XKzawUtPCj8LbBIG9=w1920-h1275-no?authuser=0',
+                'year' => 2020,
+                'url' => 'https://photos.app.goo.gl/Qv7k1BD9it3kYpgB9'
             )
         );
 
