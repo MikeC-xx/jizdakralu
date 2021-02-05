@@ -10,7 +10,7 @@ use AppBundle\Entity\KingsRide;
 
 class DefaultController extends Controller
 {
-    protected const CURRENT_YEAR = 2020;
+    protected const CURRENT_YEAR = 2021;
 
     /**
      * @Route("/{year}", name="homepage", requirements={"year"="\d+"})
